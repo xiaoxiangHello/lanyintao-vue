@@ -1,5 +1,7 @@
 <template>
+
   <div class="footer">
+    <div class="decrote-line"></div>
     <h3>{{title}}</h3>
     <p>{{time}}</p>
     <p><a :href="email" target="_blank">{{connect}}</a>|
@@ -34,8 +36,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .footer{
-  height: 180px;
+  height: 190px;
   text-align: center;
+  margin-top: 10%;
   border-top: solid 1px #e6e6e6;
   color:#606266;
 }

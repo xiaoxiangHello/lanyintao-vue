@@ -7,11 +7,12 @@
       </el-header>
       <el-container>
         <el-main class="main">
-            <focus msg="Welcome to Your Vue.js App"/>
+            <focus/>
             <MovieList title="最新电影" id="1"/>
-            <MovieList title="欧美新片" id="2"/>
-            <MovieList title="日韩新片" id="3"/>
-            <MovieList title="东南亚" id="4"/>
+            <MovieList title="国产电影" id="2"/>
+            <MovieList title="欧美新片" id="3"/>
+            <MovieList title="日韩新片" id="4"/>
+            <MovieList title="东南亚" id="5"/>
             <el-footer>
               <Footer/>
             </el-footer>
@@ -25,7 +26,8 @@
           </el-main>
           <el-main class="aside-2">
           </el-main>
-
+          <el-main class="aside-2">
+          </el-main>
         </el-aside>
 
       </el-container>
@@ -83,9 +85,9 @@ export default {
   background-color: #eee;
 }
 .aside-2{
-  height: 600px;
+  height: 760px;
   background-color: #eee;
   margin-top:20px;
+  margin-bottom:20px;
 }
-
 </style>

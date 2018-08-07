@@ -3,11 +3,15 @@
      <h2>{{title}}<font class="more"><a :href="moremovies">【更多】</a></font></h2>
      <div class="decrote-line"></div>
      <el-row :gutter="20">
-      <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-    </el-row>
+       <el-col :span="6" v-for="item in items">
+         <div class="grid-content bg-purple">
+           <a :href="item.url">
+             <img :src="item.pic" class="movie-item"/>
+             <p class="movie-title">{{item.title}}</p>
+           </a>
+         </div>
+       </el-col>
+   </el-row>
   </div>
 </template>
 
@@ -21,7 +25,32 @@ export default {
   },
   data(){
     return{
-      moremovies:""
+      moremovies:"",
+      items:[{pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
+              title:"金钱世界",
+              url:"#"},
+             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
+              title:"金钱世界",
+              url:"#"},
+             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
+              title:"金钱世界",
+              url:"#"},
+             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
+              title:"金钱世界",
+              url:"#"},
+             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
+              title:"金钱世界",
+              url:"#"},
+             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
+              title:"金钱世界",
+              url:"#"},
+             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
+              title:"金钱世界",
+              url:"#"},
+             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
+              title:"金钱世界",
+              url:"#"},
+            ]
     }
   }
 }
@@ -31,7 +60,7 @@ export default {
 <style scoped>
 .list{
   text-align: left;
-  height: 400px;
+  height: 550px;
 }
 .list a{
   text-decoration: none;
@@ -44,5 +73,41 @@ export default {
 .more{
   font-size: 8px;
 }
+.el-row {
+    margin-bottom: 20px;
+    margin-top:20px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #fff;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 210px;
+    text-align: center;
+  }
+  .row-bg {
+    padding: 5px 0;
+    background-color: #f9fafc;
+  }
+  .movie-item{
+    width: 72%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .movie-title{
+    margin-top: 0px;
+  }
 
 </style>
