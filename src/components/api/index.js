@@ -1,8 +1,10 @@
-var API_PREFIX = "//tousu.sina.cn/api/";
+var API_PREFIX = "http://www.lanyintao.com/Home/movieList/apiVueList/";
 
 module.exports = {
-	LAWS_FEED: API_PREFIX + "laws/feed",
-	INDEX_FEED: API_PREFIX + "index/feed",
-	PRAISE: API_PREFIX + "votes/add",
-	MY_COMPLAINTS: API_PREFIX + "user/complaints"
+	COMMON_API:API_PREFIX,
+	LATEST_FEED: API_PREFIX + "type/1/page/1",
+	MAINLAND_FEED: API_PREFIX + "type/2/page/1",
+	US_FEED: API_PREFIX + "type/3/page/1",
+	KOREA: API_PREFIX + "type/4/page/1",
+	SOURTH: API_PREFIX + "type/5/page/1"
 };

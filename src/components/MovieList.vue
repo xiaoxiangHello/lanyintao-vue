@@ -16,41 +16,45 @@
 </template>
 
 <script>
+import API from './api/index.js'
 export default {
   name: 'MovieList',
+  components:{
+    API
+  },
   props: {
     title:String,
     url:String,
-    id:String
+    id:String,
+    movie_type:String,
   },
   data(){
     return{
       moremovies:"",
-      items:[{pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
-              title:"金钱世界",
-              url:"#"},
-             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
-              title:"金钱世界",
-              url:"#"},
-             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
-              title:"金钱世界",
-              url:"#"},
-             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
-              title:"金钱世界",
-              url:"#"},
-             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
-              title:"金钱世界",
-              url:"#"},
-             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
-              title:"金钱世界",
-              url:"#"},
-             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
-              title:"金钱世界",
-              url:"#"},
-             {pic:"http://www.lanyintao.com./Uploads/20180718/112937.74167024_270X405X4_20180718_65879.jpg",
-              title:"金钱世界",
-              url:"#"},
-            ]
+      items:[],
+      latest: [],
+      main_land: [],
+    }
+  },
+  mounted(){
+    this.getList()
+  },
+  methods:{
+    getList(){
+
+      console.log(API.COMMON_API);
+      var vm = this;
+      this.$jsonp(API.COMMON_API,
+        {
+          type:this.movie_type,
+          page:1
+        }
+      ).then(json => {
+          console.log(json);
+          vm.items = json.data
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }
@@ -60,7 +64,6 @@ export default {
 <style scoped>
 .list{
   text-align: left;
-  height: 550px;
 }
 .list a{
   text-decoration: none;
@@ -94,7 +97,6 @@ export default {
   }
   .grid-content {
     border-radius: 4px;
-    min-height: 210px;
     text-align: center;
   }
   .row-bg {
@@ -102,7 +104,7 @@ export default {
     background-color: #f9fafc;
   }
   .movie-item{
-    width: 72%;
+    height:190px;
     margin-left: auto;
     margin-right: auto;
   }

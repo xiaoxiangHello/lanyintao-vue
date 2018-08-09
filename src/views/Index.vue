@@ -8,11 +8,11 @@
       <el-container>
         <el-main class="main">
             <focus/>
-            <MovieList title="最新电影" id="1"/>
-            <MovieList title="国产电影" id="2"/>
-            <MovieList title="欧美新片" id="3"/>
-            <MovieList title="日韩新片" id="4"/>
-            <MovieList title="东南亚" id="5"/>
+            <MovieList title="最新电影" id="1" movie_type="0"/>
+            <MovieList title="国产电影" id="2" movie_type="1"/>
+            <MovieList title="欧美新片" id="3" movie_type="2"/>
+            <MovieList title="日韩新片" id="4" movie_type="3"/>
+            <MovieList title="东南亚" id="5" movie_type="4"/>
             <el-footer>
               <Footer/>
             </el-footer>
@@ -26,8 +26,7 @@
           </el-main>
           <el-main class="aside-2">
           </el-main>
-          <el-main class="aside-2">
-          </el-main>
+
         </el-aside>
 
       </el-container>
@@ -63,7 +62,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 80%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -72,7 +71,6 @@ export default {
   background-color: #fff;
 }
 .main{
-  min-height: 800px;
   margin-top:10px;
 }
 .aside{
