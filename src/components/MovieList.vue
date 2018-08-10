@@ -6,7 +6,7 @@
        <el-col :span="6" v-for="item in items">
          <div class="grid-content bg-purple">
            <a :href="item.url">
-             <img :src="item.pic" class="movie-item"/>
+             <img class="lazyImg" :data-src="item.pic" class="movie-item"/>
              <p class="movie-title">{{item.title}}</p>
            </a>
          </div>
