@@ -5,6 +5,9 @@
       <el-header class="nav">
         <Header/>
       </el-header>
+      <div class="search">
+        <el-input v-model="input" placeholder="想搜点什么？请输入电影名"></el-input>
+      </div>
       <el-container>
         <el-main class="main">
             <focus/>
@@ -18,13 +21,52 @@
             </el-footer>
         </el-main>
         <el-aside class="aside">
+          <el-main class="aside-0">
+            <h4>影片分类</h4>
+            <el-row style="padding-left:24px;">
+              <el-col :span="6.5"><el-button>动作</el-button></el-col>
+              <el-col :span="6.5"><el-button>喜剧</el-button></el-col>
+              <el-col :span="6.5"><el-button>剧情</el-button></el-col>
+              <el-col :span="6.5"><el-button>犯罪</el-button></el-col>
+              <el-col :span="6.5"><el-button>惊悚</el-button></el-col>
+              <el-col :span="6.5"><el-button>悬疑</el-button></el-col>
+              <el-col :span="6.5"><el-button>科幻</el-button></el-col>
+              <el-col :span="6.5"><el-button>爱情</el-button></el-col>
+              <el-col :span="6.5"><el-button>音乐</el-button></el-col>
+              <el-col :span="6.5"><el-button>儿童</el-button></el-col>
+              <el-col :span="6.5"><el-button>家庭</el-button></el-col>
+              <el-col :span="6.5"><el-button>动画</el-button></el-col>
+              <el-col :span="6.5"><el-button>纪录</el-button></el-col>
+              <el-col :span="6.5"><el-button>传记</el-button></el-col>
+              <el-col :span="6.5"><el-button>历史</el-button></el-col>
+            </el-row>
+          </el-main>
+          <el-main class="aside-2">
+            <h4>猜你喜欢</h4>
+            <el-row>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+              <p>【美女与野兽】2018-03-18 美国</p>
+            </el-row>
+          </el-main>
+          <el-main class="aside-2">
+          </el-main>
+          <el-main class="aside-2">
+          </el-main>
           <el-main class="aside-1">
-          </el-main>
-          <el-main class="aside-2">
-          </el-main>
-          <el-main class="aside-2">
-          </el-main>
-          <el-main class="aside-2">
           </el-main>
 
         </el-aside>
@@ -66,6 +108,13 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+.search{
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .nav{
   background-color: #fff;
@@ -75,17 +124,25 @@ export default {
 }
 .aside{
   margin-left:10px;
-  margin-top: 30px;
+  margin-top: 10px;
   background-color: #fff;
 }
 .aside-1{
-  height: 200px;
+  height: 500px;
   background-color: #eee;
+}
+.aside-0{
+  height: 320px;
+  background-color: #eee;
+
 }
 .aside-2{
   height: 760px;
   background-color: #eee;
   margin-top:20px;
   margin-bottom:20px;
+}
+.tags{
+
 }
 </style>

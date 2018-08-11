@@ -12,7 +12,17 @@ export default {
   props: {
     msg: String,
     item: String
-  }
+  },
+  data(){
+    return {
+      activeIndex:'1',
+      items:[{title:'支持国产', url:"#", id:"1"},
+             {title:'欧美新片', url:"#", id:"2"},
+             {title:'日韩新片', url:"#", id:"3"},
+             {title:'东南亚', url:"#", id:"4"}],
+      picUrl:"http://www.lanyintao.com/Public/img/Cherry.png",
+    }
+  },
 }
 </script>
 

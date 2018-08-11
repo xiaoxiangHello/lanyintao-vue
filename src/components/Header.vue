@@ -9,6 +9,7 @@
       <el-button @select="singup">注册</el-button>
     </div>
   </el-menu>
+
 </template>
 
 <script>
