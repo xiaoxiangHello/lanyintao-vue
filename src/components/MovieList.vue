@@ -2,8 +2,8 @@
   <div class="list">
      <h2>{{title}}<font class="more"><a :href="moremovies">【更多】</a></font></h2>
      <div class="decrote-line"></div>
-     <el-row :gutter="20">
-       <el-col :span="6" v-for="item in items">
+     <el-row :gutter="21">
+       <el-col :span="4.8" v-for="item in items">
          <div class="grid-content bg-purple">
            <a :href="item.url">
              <img class="lazyImg" :data-src="item.pic" />
@@ -79,6 +79,7 @@ export default {
 .el-row {
     margin-bottom: 20px;
     margin-top:20px;
+
     &:last-child {
       margin-bottom: 0px;
     }
@@ -104,7 +105,7 @@ export default {
     background-color: #f9fafc;
   }
   .movie-item{
-    height:190px;
+    height:210px;
     margin-left: auto;
     margin-right: auto;
   }

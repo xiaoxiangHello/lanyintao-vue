@@ -1,20 +1,10 @@
 <template>
   <el-row style="padding-left:24px;">
-    <el-col :span="6.5"><el-button>动作</el-button></el-col>
-    <el-col :span="6.5"><el-button>喜剧</el-button></el-col>
-    <el-col :span="6.5"><el-button>剧情</el-button></el-col>
-    <el-col :span="6.5"><el-button>犯罪</el-button></el-col>
-    <el-col :span="6.5"><el-button>惊悚</el-button></el-col>
-    <el-col :span="6.5"><el-button>悬疑</el-button></el-col>
-    <el-col :span="6.5"><el-button>科幻</el-button></el-col>
-    <el-col :span="6.5"><el-button>爱情</el-button></el-col>
-    <el-col :span="6.5"><el-button>音乐</el-button></el-col>
-    <el-col :span="6.5"><el-button>儿童</el-button></el-col>
-    <el-col :span="6.5"><el-button>家庭</el-button></el-col>
-    <el-col :span="6.5"><el-button>动画</el-button></el-col>
-    <el-col :span="6.5"><el-button>纪录</el-button></el-col>
-    <el-col :span="6.5"><el-button>传记</el-button></el-col>
-    <el-col :span="6.5"><el-button>历史</el-button></el-col>
+    <el-col :span="6.5" v-for="item in tags" :key="item.id">
+      <el-button class="tag">
+        <a :href="item.url" target="_blank">{{item.title}}</a>
+      </el-button>
+    </el-col>
   </el-row>
 </template>
 
@@ -28,10 +18,22 @@ export default {
   data(){
     return {
       activeIndex:'1',
-      tags:[{title:'支持国产', url:"#", id:"1"},
-             {title:'欧美新片', url:"#", id:"2"},
-             {title:'日韩新片', url:"#", id:"3"},
-             {title:'东南亚', url:"#", id:"4"}],
+      tags:[{title:'动作', url:"", id:"1"},
+            {title:'喜剧', url:"#", id:"2"},
+            {title:'剧情', url:"#", id:"3"},
+            {title:'犯罪', url:"#", id:"4"},
+            {title:'惊悚', url:"#", id:"5"},
+            {title:'悬疑', url:"#", id:"6"},
+            {title:'科幻', url:"#", id:"7"},
+            {title:'爱情', url:"#", id:"8"},
+            {title:'音乐', url:"#", id:"9"},
+            {title:'儿童', url:"#", id:"10"},
+            {title:'家庭', url:"#", id:"11"},
+            {title:'动画', url:"#", id:"12"},
+            {title:'纪录', url:"#", id:"13"},
+            {title:'传记', url:"#", id:"14"},
+            {title:'历史', url:"#", id:"15"},
+      ],
     }
   }
 }
@@ -53,6 +55,10 @@ export default {
 
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
+  }
+  .tag a{
+    text-decoration: none;
+    color:#333;
   }
 
 </style>

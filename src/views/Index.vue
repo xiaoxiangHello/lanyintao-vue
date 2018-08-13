@@ -23,23 +23,7 @@
         <el-aside class="aside">
           <el-main class="aside-0">
             <h4>影片分类</h4>
-            <el-row style="padding-left:24px;">
-              <el-col :span="6.5"><el-button>动作</el-button></el-col>
-              <el-col :span="6.5"><el-button>喜剧</el-button></el-col>
-              <el-col :span="6.5"><el-button>剧情</el-button></el-col>
-              <el-col :span="6.5"><el-button>犯罪</el-button></el-col>
-              <el-col :span="6.5"><el-button>惊悚</el-button></el-col>
-              <el-col :span="6.5"><el-button>悬疑</el-button></el-col>
-              <el-col :span="6.5"><el-button>科幻</el-button></el-col>
-              <el-col :span="6.5"><el-button>爱情</el-button></el-col>
-              <el-col :span="6.5"><el-button>音乐</el-button></el-col>
-              <el-col :span="6.5"><el-button>儿童</el-button></el-col>
-              <el-col :span="6.5"><el-button>家庭</el-button></el-col>
-              <el-col :span="6.5"><el-button>动画</el-button></el-col>
-              <el-col :span="6.5"><el-button>纪录</el-button></el-col>
-              <el-col :span="6.5"><el-button>传记</el-button></el-col>
-              <el-col :span="6.5"><el-button>历史</el-button></el-col>
-            </el-row>
+            <Tags/>
           </el-main>
           <el-main class="aside-2">
             <h4>猜你喜欢</h4>
@@ -83,6 +67,7 @@ import MovieList from '@/components/MovieList.vue'
 import Focus from '@/components/Focus.vue'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import Tags from '@/components/Tag.vue'
 
 
 export default {
@@ -91,8 +76,14 @@ export default {
     MovieList,
     Focus,
     Header,
-    Footer
+    Footer,
+    Tags
   },
+  data(){
+    return {
+      input:"",
+    }
+  }
 
 }
 </script>
