@@ -27,24 +27,7 @@
           </el-main>
           <el-main class="aside-2">
             <h4>猜你喜欢</h4>
-            <el-row>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-              <p>【美女与野兽】2018-03-18 美国</p>
-            </el-row>
+            <Guess/>
           </el-main>
           <el-main class="aside-2">
           </el-main>
@@ -68,6 +51,7 @@ import Focus from '@/components/Focus.vue'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Tags from '@/components/Tag.vue'
+import Guess from '@/components/Guess.vue'
 
 
 export default {
@@ -77,7 +61,8 @@ export default {
     Focus,
     Header,
     Footer,
-    Tags
+    Tags,
+    Guess,
   },
   data(){
     return {
@@ -132,8 +117,9 @@ export default {
   background-color: #eee;
   margin-top:20px;
   margin-bottom:20px;
+  text-align: left;
 }
-.tags{
-
+.aside-2 a{
+  text-decoration: none;
 }
 </style>

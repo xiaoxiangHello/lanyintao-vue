@@ -7,6 +7,8 @@ import store from './store'
 import axios from 'axios'
 import VueJsonp from 'vue-jsonp'
 import vueLazyImg from './js/lazy-img.js'
+import moment from 'moment'
+
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
@@ -14,6 +16,12 @@ Vue.prototype.$axios = axios;
 Vue.use(ElementUI);
 Vue.use(VueJsonp);
 Vue.use(vueLazyImg)
+
+
+Vue.filter('dateformat', function(dataStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
+    return moment(dataStr).format(pattern)
+
+})
 
 new Vue({
     router,

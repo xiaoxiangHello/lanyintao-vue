@@ -1,18 +1,47 @@
 <template>
+  <el-row :gutter="24" class="row">
+    <div v-for="item in items">
+      <el-col :span="12">
+        <div>
+          <img class="lazyImg" :data-src="item.pic" height="160px;"/>
+          <p style="margin-top:0px;"><a :href="item.url">{{item.title}}</a></p>
+        </div>
+      </el-col>
 
+    </div>
+  </el-row>
 </template>
 
 <script>
+import API from './api/index.js'
 export default {
   name: 'Guess',
+  components:{
+    API
+  },
   props: {
     msg: String,
     item: String
   },
   data(){
     return {
-
+      items:[],
     }
+  },
+  mounted(){
+    this.getList()
+  },
+  methods:{
+      getList(){
+        var vm = this;
+        this.$jsonp(API.GUESS,{}
+        ).then(json => {
+            console.log(json);
+            vm.items = json.data
+        }).catch(err => {
+          console.log(err)
+        })
+      }
   }
 }
 </script>
@@ -38,5 +67,11 @@ export default {
     text-decoration: none;
     color:#333;
   }
-
+  .row{
+    text-align:center;
+  }
+  .row a{
+    text-decoration: none;
+    color:#333;
+  }
 </style>

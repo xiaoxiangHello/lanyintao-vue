@@ -6,5 +6,6 @@ module.exports = {
 	MAINLAND_FEED: API_PREFIX + "type/2/page/1",
 	US_FEED: API_PREFIX + "type/3/page/1",
 	KOREA: API_PREFIX + "type/4/page/1",
-	SOURTH: API_PREFIX + "type/5/page/1"
+	SOURTH: API_PREFIX + "type/5/page/1",
+	GUESS: "http://www.lanyintao.com/Home/movieList/apiVueGuess",
 };
