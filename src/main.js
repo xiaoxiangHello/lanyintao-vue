@@ -9,6 +9,7 @@ import VueJsonp from 'vue-jsonp'
 import vueLazyImg from './js/lazy-img.js'
 import moment from 'moment'
 
+import './css/base.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
