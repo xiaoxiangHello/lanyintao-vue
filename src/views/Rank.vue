@@ -14,48 +14,8 @@ var titleDatas = [
       {
         type: "win",
         title: "国内机场口碑红榜 TOP10",
-        datas: [{
-            num: "1",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "2",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "3",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "4",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "5",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "6",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "7",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "8",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "9",
-            name: "许振华",
-            poll: "371237票"
-        }, {
-            num: "10",
-            name: "许振华",
-            poll: "371237票"
-        }]
-    }, {
+        datas: []
+      }, {
         type: "lose",
         title: "国内机场口碑黑榜 TOP10",
         datas: [{

@@ -25,16 +25,18 @@
             <h4>影片分类</h4>
             <Tags/>
           </el-main>
-          <el-main class="aside-2">
+          <el-main class="aside-3">
             <h4>猜你喜欢</h4>
             <Guess/>
           </el-main>
           <el-main class="aside-2">
-          </el-main>
-          <el-main class="aside-2">
+            <h4>点击排行榜</h4>
+            <Rank/>
           </el-main>
           <el-main class="aside-1">
+            <h4>热门影评</h4>
           </el-main>
+
 
         </el-aside>
 
@@ -52,6 +54,7 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Tags from '@/components/Tag.vue'
 import Guess from '@/components/Guess.vue'
+import Rank from '@/components/RankList.vue'
 
 
 export default {
@@ -63,6 +66,7 @@ export default {
     Footer,
     Tags,
     Guess,
+    Rank,
   },
   data(){
     return {
@@ -106,6 +110,7 @@ export default {
 .aside-1{
   height: 500px;
   background-color: #eee;
+  text-align: left;
 }
 .aside-0{
   height: 320px;
@@ -122,4 +127,16 @@ export default {
 .aside-2 a{
   text-decoration: none;
 }
+
+.aside-3{
+  height: 1000px;
+  background-color: #eee;
+  margin-top:20px;
+  margin-bottom:20px;
+  text-align: left;
+}
+.aside-3 a{
+  text-decoration: none;
+}
+
 </style>

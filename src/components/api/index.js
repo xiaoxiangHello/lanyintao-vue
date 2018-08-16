@@ -8,4 +8,5 @@ module.exports = {
 	KOREA: API_PREFIX + "type/4/page/1",
 	SOURTH: API_PREFIX + "type/5/page/1",
 	GUESS: "http://www.lanyintao.com/Home/movieList/apiVueGuess",
+	RANK:"http://www.lanyintao.com/Home/movieList/apiVueRankList",
 };

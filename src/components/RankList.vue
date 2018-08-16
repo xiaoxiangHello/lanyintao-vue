@@ -1,17 +1,21 @@
 <template>
   <el-row :gutter="24" class="row">
-    <div v-for="item in items" style="border:1px solid #eee;">
-      <a :href="item.url" target="_blank">
-      <el-col :span="12">
-        <img :src="item.pic" height="160px;"/>
-      </el-col>
-      <el-col :span="12" style="height:170px;text-align:left;">
-        <h5 style="margin-top:15px;">{{item.title}}</h5>
-        <p>{{item.director}}</p>
-        <p>{{item.location}}</p>
-        <p>{{item.show_time}}</p>
-      </el-col>
-    </a>
+    <div v-for="(item,key) in items">
+    <el-col :span="20" >
+      <p>
+        <a :href="item.url" target="_blank" style="text-decoration:none;color:#333;">
+          <span style="font-size:20px;weight:blod;padding-right:10px;color:red;" v-if="item.rank < 6">{{item.rank}}</span>
+          <span style="font-size:20px;weight:blod;padding-right:10px;" v-else>{{item.rank}}</span>
+          <span>[{{item.title}}]</span>
+          <span>[{{item.show_time}}]</span>
+        </a>
+      </p>
+    </el-col>
+    <el-col :span="3">
+      <p style="line-height:22px;color:orange;">
+          <span>{{item.count}}</span>
+      </p>
+    </el-col>
     </div>
   </el-row>
 </template>
@@ -19,10 +23,7 @@
 <script>
 import API from './api/index.js'
 export default {
-  name: 'Guess',
-  components:{
-    API
-  },
+  name: 'Focus',
   props: {
     msg: String,
     item: String
@@ -38,10 +39,12 @@ export default {
   methods:{
       getList(){
         var vm = this;
-        this.$jsonp(API.GUESS,{}
+        this.$jsonp(API.RANK,{}
         ).then(json => {
+            console.log(json.data);
             vm.items = json.data
         }).catch(err => {
+          console.log(err)
         })
       }
   }
@@ -69,11 +72,5 @@ export default {
     text-decoration: none;
     color:#333;
   }
-  .row{
-    text-align:center;
-  }
-  .row a{
-    text-decoration: none;
-    color:#333;
-  }
+
 </style>

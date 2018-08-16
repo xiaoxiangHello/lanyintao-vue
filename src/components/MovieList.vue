@@ -50,10 +50,10 @@ export default {
           page:1
         }
       ).then(json => {
-          console.log(json);
+
           vm.items = json.data
       }).catch(err => {
-        console.log(err)
+        
       })
     }
   }
