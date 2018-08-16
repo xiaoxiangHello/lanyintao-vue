@@ -7,6 +7,7 @@ import store from './store'
 import axios from 'axios'
 import VueJsonp from 'vue-jsonp'
 import vueLazyImg from './js/lazy-img.js'
+import './css/base.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
