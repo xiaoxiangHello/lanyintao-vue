@@ -71,9 +71,19 @@ export default {
   data(){
     return {
       input:"",
+       pageName: 'loading'
     }
-  }
-
+  },
+  metaInfo () {
+      return {
+        title: this.pageName
+      }
+    },
+    mounted () {
+      setTimeout(() => {
+        this.pageName = 'async'
+      }, 2000)
+    }
 }
 </script>
 

@@ -8,8 +8,8 @@ import axios from 'axios'
 import VueJsonp from 'vue-jsonp'
 import vueLazyImg from './js/lazy-img.js'
 import moment from 'moment'
-
 import './css/base.css'
+import MetaInfo from 'vue-meta-info'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
@@ -17,6 +17,7 @@ Vue.prototype.$axios = axios;
 Vue.use(ElementUI);
 Vue.use(VueJsonp);
 Vue.use(vueLazyImg)
+Vue.use(MetaInfo)
 
 
 Vue.filter('dateformat', function(dataStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
