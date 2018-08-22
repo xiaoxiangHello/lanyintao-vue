@@ -108,7 +108,7 @@ export default {
   background-color: #fff;
 }
 .aside-1{
-  height: 500px;
+  height: 600px;
   background-color: #eee;
   text-align: left;
 }

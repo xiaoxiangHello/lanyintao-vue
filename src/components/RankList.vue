@@ -41,7 +41,6 @@ export default {
         var vm = this;
         this.$jsonp(API.RANK,{}
         ).then(json => {
-            console.log(json.data);
             vm.items = json.data
         }).catch(err => {
           console.log(err)

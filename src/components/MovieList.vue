@@ -41,8 +41,6 @@ export default {
   },
   methods:{
     getList(){
-
-      console.log(API.COMMON_API);
       var vm = this;
       this.$jsonp(API.COMMON_API,
         {
@@ -53,7 +51,7 @@ export default {
 
           vm.items = json.data
       }).catch(err => {
-        
+
       })
     }
   }

@@ -9,4 +9,5 @@ module.exports = {
 	SOURTH: API_PREFIX + "type/5/page/1",
 	GUESS: "http://www.lanyintao.com/Home/movieList/apiVueGuess",
 	RANK:"http://www.lanyintao.com/Home/movieList/apiVueRankList",
+	FOCUS:"http://www.lanyintao.com/Home/movieList/apiFocusVueList",
 };

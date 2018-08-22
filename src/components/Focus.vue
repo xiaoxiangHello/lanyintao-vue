@@ -1,12 +1,13 @@
 <template>
-  <el-carousel :interval="4000" type="card" height="200px">
-    <el-carousel-item v-for="item in 6" :key="item">
-      <h3>{{ item }}</h3>
+  <el-carousel :interval="4000" type="card" >
+    <el-carousel-item v-for="item in items" >
+      <img :src="item.url" height="300px"/>
     </el-carousel-item>
   </el-carousel>
 </template>
 
 <script>
+import API from './api/index.js'
 export default {
   name: 'Focus',
   props: {
@@ -16,13 +17,26 @@ export default {
   data(){
     return {
       activeIndex:'1',
-      items:[{title:'支持国产', url:"#", id:"1"},
-             {title:'欧美新片', url:"#", id:"2"},
-             {title:'日韩新片', url:"#", id:"3"},
-             {title:'东南亚', url:"#", id:"4"}],
-      picUrl:"http://www.lanyintao.com/Public/img/Cherry.png",
+      items:[],
     }
   },
+  mounted(){
+    this.getList();
+  },
+  methods:{
+    getList(){
+      var vm = this;
+
+      this.$jsonp(API.FOCUS,{}
+      ).then(json => {
+         vm.items = json.data;
+         console.log(json.data);
+
+      }).catch(err => {
+
+      })
+    }
+  }
 }
 </script>
 
