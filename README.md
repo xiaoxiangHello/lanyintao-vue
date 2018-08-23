@@ -3,6 +3,7 @@
 ## Project setup
 ```
 npm install
+cnpm install prerender-spa-plugin --save-dev
 ```
 
 ### Compiles and hot-reloads for development
