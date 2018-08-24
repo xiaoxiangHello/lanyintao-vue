@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import About from './views/About.vue'
 import IndexPage from './views/Index.vue'
 import Rank from './views/Rank.vue'
+import ShowList from './views/ShowList.vue'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
             path: '/rank',
             name: 'rank',
             component: Rank
+        },
+        {
+            path: '/showList',
+            name: 'showList',
+            component: ShowList
         }
     ]
 })

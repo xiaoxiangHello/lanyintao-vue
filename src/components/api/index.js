@@ -10,4 +10,5 @@ module.exports = {
 	GUESS: "http://www.lanyintao.com/Home/movieList/apiVueGuess",
 	RANK:"http://www.lanyintao.com/Home/movieList/apiVueRankList",
 	FOCUS:"http://www.lanyintao.com/Home/movieList/apiFocusVueList",
+	SEARCH:"http://www.lanyintao.com/Home/movieList/apiSearchList",
 };
