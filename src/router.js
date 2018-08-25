@@ -25,7 +25,7 @@ export default new Router({
             component: Rank
         },
         {
-            path: '/showList',
+            path: '/showList/:name/:page',
             name: 'showList',
             component: ShowList
         }

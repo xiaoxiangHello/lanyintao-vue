@@ -6,7 +6,8 @@
         <Header/>
       </el-header>
       <div class="search">
-        <el-input v-model="input" placeholder="想搜点什么？请输入电影名"></el-input>
+        <!-- <el-input v-model="input" placeholder="想搜点什么？请输入电影名"></el-input> -->
+        <Search />
       </div>
       <el-container>
         <el-main class="main">
@@ -55,6 +56,7 @@ import Footer from '@/components/Footer.vue'
 import Tags from '@/components/Tag.vue'
 import Guess from '@/components/Guess.vue'
 import Rank from '@/components/RankList.vue'
+import Search from '@/components/Search.vue'
 
 
 export default {
@@ -67,11 +69,12 @@ export default {
     Tags,
     Guess,
     Rank,
+    Search,
   },
   data(){
     return {
       input:"",
-       pageName: 'loading'
+      pageName: '烂樱桃(电影网)',
     }
   },
   metaInfo () {
@@ -81,7 +84,7 @@ export default {
     },
     mounted () {
       setTimeout(() => {
-        this.pageName = 'async'
+        this.pageName = this.pageName
       }, 2000)
     }
 }
