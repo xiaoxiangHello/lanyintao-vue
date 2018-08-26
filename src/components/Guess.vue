@@ -2,10 +2,10 @@
   <el-row :gutter="24" class="row">
     <div v-for="item in items" style="border:1px solid #eee;">
       <a :href="item.url" target="_blank">
-      <el-col :span="12">
+      <el-col :span="10">
         <img :src="item.pic" height="160px;"/>
       </el-col>
-      <el-col :span="12" style="height:170px;text-align:left;">
+      <el-col :span="14" style="height:170px;text-align:left;overflow:hidden;white-space:nowrap;">
         <h5 style="margin-top:15px;">{{item.title}}</h5>
         <p>{{item.director}}</p>
         <p>{{item.location}}</p>
@@ -75,5 +75,8 @@ export default {
   .row a{
     text-decoration: none;
     color:#333;
+  }
+  .one-line{
+  overflow:hidden;white-space:nowrap;
   }
 </style>

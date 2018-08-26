@@ -81,9 +81,9 @@ export default {
     return {
       input:"",
        pageName: "烂樱桃_搜索_电影",
-       pic:"http://www.lanyintao.com./Uploads/20180824/181345.14992361_270X405X4_20180824_81643.jpg",
+       pic:"",
        items:[],
-       title:this.$router.history.current.params.name,
+       title:"",
        count:""
     }
   },
@@ -96,23 +96,30 @@ export default {
       // setTimeout(() => {
       //   this.pageName = "loading"
       // }, 2000)
-      this.getList()
+      this.getList(this.$router.history.current.params.name, this.$router.history.current.params.page)
     },
     methods:{
-
-      getList(){
+      getList(name, page){
         var vm = this;
         this.$jsonp(API.SEARCH,
           {
-            name:this.$router.history.current.params.name,
-            page:this.$router.history.current.params.page
+            name:name,
+            page:page
           }
         ).then(json => {
-            vm.items = json.data,
-            vm.count = json.pageinfo.totalRows
+            vm.items = json.data;
+            vm.count = json.pageinfo.totalRows;
+            vm.title = this.$router.history.current.params.name;
         }).catch(err => {
 
         })
+      }
+    },
+    watch:{
+      $route(to, from){
+        console.log(to.params.name);
+        this.getList(to.params.name, to.params.page);
+        this.title = to.params.name;
       }
     }
 }

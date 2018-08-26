@@ -7,8 +7,10 @@
           <span style="font-size:20px;weight:blod;padding-right:10px;color:red;" v-if="item.rank < 6">{{item.rank}}</span>
           <span style="font-size:20px;weight:blod;padding-right:10px;" v-else>{{item.rank}}</span>
           <span>[{{item.title}}]</span>
-          <span>[{{item.show_time}}]</span>
         </a>
+      </p>
+      <p style="margin-left:22px;">
+        [{{item.show_time}}][{{item.location}}]
       </p>
     </el-col>
     <el-col :span="3">
