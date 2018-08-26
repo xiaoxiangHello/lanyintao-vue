@@ -89,14 +89,24 @@ export default {
   },
   metaInfo () {
       return {
-        title: this.pageName
+        title: this.pageName+this.title
       }
     },
     mounted () {
       // setTimeout(() => {
       //   this.pageName = "loading"
       // }, 2000)
-      this.getList(this.$router.history.current.params.name, this.$router.history.current.params.page)
+      var name = this.$router.history.current.params.name;
+      var page = this.$router.history.current.params.page;
+      var type = this.$router.history.current.params.type;
+
+      if (name != null) {
+        this.getList(name, page)
+      }
+
+      if (type != null) {
+        this.getTypeList(type, page)
+      }
     },
     methods:{
       getList(name, page){
@@ -110,6 +120,21 @@ export default {
             vm.items = json.data;
             vm.count = json.pageinfo.totalRows;
             vm.title = this.$router.history.current.params.name;
+        }).catch(err => {
+
+        })
+      },
+      getTypeList(type, page){
+        var vm = this;
+        this.$jsonp(API.SEARCH,
+          {
+            type:type,
+            page:page
+          }
+        ).then(json => {
+            vm.items = json.data;
+            vm.count = json.pageinfo.totalRows;
+            vm.title = this.$router.history.current.params.type;
         }).catch(err => {
 
         })

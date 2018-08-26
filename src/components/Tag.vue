@@ -2,7 +2,8 @@
   <el-row style="padding-left:24px;">
     <el-col :span="6.5" v-for="item in tags" :key="item.id">
       <el-button class="tag">
-        <a :href="item.url" target="_blank">{{item.title}}</a>
+        <!-- <a :href="item.url" target="_blank">{{item.title}}</a> -->
+        <router-link to="item.url">{{item.title}}</router-link>
       </el-button>
     </el-col>
   </el-row>
@@ -18,8 +19,8 @@ export default {
   data(){
     return {
       activeIndex:'1',
-      tags:[{title:'动作', url:"", id:"1"},
-            {title:'喜剧', url:"#", id:"2"},
+      tags:[{title:'动作', url:"/ShowList/type/动作", id:"1"},
+            {title:'喜剧', url:"", id:"2"},
             {title:'剧情', url:"#", id:"3"},
             {title:'犯罪', url:"#", id:"4"},
             {title:'惊悚', url:"#", id:"5"},
