@@ -9,16 +9,19 @@
       </div>
       <el-container>
         <el-main class="main">
-          <h2 style="text-align:left;">找到关于<span style="color:red;">{{title}}</span>的影片共<span style="color:red;">{{count}}</span>个:</h2>
+          <h2 style="text-align:left;">找到关于<span style="color:red;">{{title}}</span>的影片共<span style="color:red;">{{total}}</span>个:</h2>
+
           <el-row :gutter="24" style="min-height:1800px;">
-            <div v-for="item in items">
+            <Page @search="search" :total="total" :currentPage="curPage"/>
+            <div v-for="item in items" style="height:200px;border:1px solid #eee;padding-top:20px;">
               <a :href="item.url" target="_blank">
-              <el-col :span="5">
-                <img :src="item.pic" height="200px;"/>
+              <el-col :span="8">
+                <img :data-src="item.pic" class="movie-item lazyImg" style="height:180px;"/>
               </el-col>
-              <el-col :span="7" style="height:220px;text-align:left;">
+              <el-col :span="12" style="height:200px;text-align:left;">
                 <h5 class="one-line" style="margin-top:15px;">【片名】{{item.title}}</h5>
                 <p class="one-line">【导演】{{item.director}}</p>
+                <p class="one-line">【演员】{{item.director}}</p>
                 <p class="one-line">【地区】{{item.location}}</p>
                 <p class="one-line">【上映时间】{{item.show_time}}</p>
               </el-col>
@@ -65,6 +68,7 @@ import Tags from '@/components/Tag.vue'
 import Guess from '@/components/Guess.vue'
 import Rank from '@/components/RankList.vue'
 import Search from '@/components/Search.vue'
+import Page from '@/components/Page.vue'
 import API from '@/components/api/index.js'
 
 export default {
@@ -76,6 +80,7 @@ export default {
     Guess,
     Rank,
     Search,
+    Page,
   },
   data(){
     return {
@@ -84,7 +89,10 @@ export default {
        pic:"",
        items:[],
        title:"",
-       count:""
+       count:"",
+       total:0,
+       curPage:0,
+       pageSize:0,
     }
   },
   metaInfo () {
@@ -118,7 +126,7 @@ export default {
           }
         ).then(json => {
             vm.items = json.data;
-            vm.count = json.pageinfo.totalRows;
+            vm.total = json.pageinfo.totalRows;
             vm.title = this.$router.history.current.params.name;
         }).catch(err => {
 
@@ -133,18 +141,31 @@ export default {
           }
         ).then(json => {
             vm.items = json.data;
-            vm.count = json.pageinfo.totalRows;
+            vm.total = json.pageinfo.totalRows;
             vm.title = this.$router.history.current.params.type;
+            //console.log(json.pageinfo);
         }).catch(err => {
 
         })
+      },
+      search(pageNum, pageSize){
+        this.curPage = this.$router.history.current.params.page;
       }
     },
     watch:{
       $route(to, from){
-        console.log(to.params.name);
-        this.getList(to.params.name, to.params.page);
-        this.title = to.params.name;
+
+        if (to.params.name != null){
+          this.getList(to.params.name, to.params.page);
+          this.title = to.params.name;
+        }
+
+        if (to.params.type != null){
+          this.getTypeList(to.params.type, to.params.page);
+          this.title = to.params.type;
+        }
+
+
       }
     }
 }
