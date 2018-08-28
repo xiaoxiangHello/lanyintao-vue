@@ -12,8 +12,8 @@
           <h2 style="text-align:left;">找到关于<span style="color:red;">{{title}}</span>的影片共<span style="color:red;">{{total}}</span>个:</h2>
 
           <el-row :gutter="24" style="min-height:1800px;">
-            <Page @search="search" :total="total" :currentPage="curPage"/>
-            <div v-for="item in items" style="height:200px;border:1px solid #eee;padding-top:20px;">
+            <!-- <Page @search="search" :total="total" :currentPage="curPage"/> -->
+            <div v-for="item in items" style="height:200px;border:1px solid #eee;padding-top:20px;" :key="item.id">
               <a :href="item.url" target="_blank">
               <el-col :span="8">
                 <img :data-src="item.pic" class="movie-item lazyImg" style="height:180px;"/>
@@ -27,6 +27,14 @@
               </el-col>
               </a>
             </div>
+            <el-pagination
+              background
+              layout="prev, pager, next"
+              :current-page="curPage"
+              :total="total"
+              @current-change="handleCurrentChange"
+              >
+            </el-pagination>
            </el-row>
 
             <el-footer>
@@ -68,7 +76,7 @@ import Tags from '@/components/Tag.vue'
 import Guess from '@/components/Guess.vue'
 import Rank from '@/components/RankList.vue'
 import Search from '@/components/Search.vue'
-import Page from '@/components/Page.vue'
+// import Page from '@/components/Page.vue'
 import API from '@/components/api/index.js'
 
 export default {
@@ -80,7 +88,7 @@ export default {
     Guess,
     Rank,
     Search,
-    Page,
+    // Page,
   },
   data(){
     return {
@@ -141,7 +149,9 @@ export default {
           }
         ).then(json => {
             vm.items = json.data;
-            vm.total = json.pageinfo.totalRows;
+            console.log(vm.items);
+            vm.total = json.pageinfo.totalRows*1;
+            console.log(vm.total);
             vm.title = this.$router.history.current.params.type;
             //console.log(json.pageinfo);
         }).catch(err => {
@@ -150,7 +160,16 @@ export default {
       },
       search(pageNum, pageSize){
         this.curPage = this.$router.history.current.params.page;
-      }
+      },
+      //页码变更
+      handleCurrentChange: function(val) {
+          this.curPage = val;
+          var type = this.$router.history.current.params.type;
+          this.getTypeList(type, this.curPage);
+          console.log(type,this.curPage);
+          console.log(type,this.curPage);
+          // this.loadData(this.criteria, this.curPage, this.pagesize);
+      },
     },
     watch:{
       $route(to, from){
