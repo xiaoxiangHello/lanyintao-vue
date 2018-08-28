@@ -1,9 +1,16 @@
 <template>
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-    <div class="logo">
-      <img :src="picUrl" height="50px"><span class="logo-title"><b>烂樱桃</b></span>
+   <router-link :to="IndexPage">
+   <div class="logo">
+      <img :src="picUrl" height="50px">
+      <span class="logo-title">
+        <b>烂樱桃</b>
+      </span>
     </div>
-    <el-menu-item v-for="item in items" :index="item.id">{{item.title}}</el-menu-item>
+  </router-link>
+    <el-menu-item v-for="item in items" :index="item.id">
+      <router-link :to="item.url">{{item.title}}</router-link>
+    </el-menu-item>
     <div class="login-panel">
       <el-button @select="singin">登陆</el-button>
       <el-button @select="singup">注册</el-button>
@@ -21,10 +28,10 @@ export default {
   data(){
     return {
       activeIndex:'1',
-      items:[{title:'支持国产', url:"#", id:"1"},
-             {title:'欧美新片', url:"#", id:"2"},
-             {title:'日韩新片', url:"#", id:"3"},
-             {title:'东南亚', url:"#", id:"4"}],
+      items:[{title:'支持国产', url:"/ShowList/local/4/p/1", id:"1"},
+             {title:'欧美新片', url:"/ShowList/local/1/p/1", id:"2"},
+             {title:'日韩新片', url:"/ShowList/local/2/p/1", id:"3"},
+             {title:'东南亚', url:"/ShowList/local/3/p/1", id:"4"}],
       picUrl:"http://www.lanyintao.com/Public/img/Cherry.png",
     }
   },

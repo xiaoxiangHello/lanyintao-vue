@@ -28,6 +28,7 @@
               </a>
             </div>
             <el-pagination
+              style="margin-top:30px;"
               background
               layout="prev, pager, next"
               :current-page="curPage"
@@ -115,6 +116,7 @@ export default {
       var name = this.$router.history.current.params.name;
       var page = this.$router.history.current.params.page;
       var type = this.$router.history.current.params.type;
+      var local = this.$router.history.current.params.local;
 
       if (name != null) {
         this.getList(name, page)
@@ -123,6 +125,11 @@ export default {
       if (type != null) {
         this.getTypeList(type, page)
       }
+
+      if (local != null) {
+        this.getLocalList(local, page)
+      }
+
     },
     methods:{
       getList(name, page){
@@ -130,11 +137,11 @@ export default {
         this.$jsonp(API.SEARCH,
           {
             name:name,
-            page:page
+            p:page
           }
         ).then(json => {
             vm.items = json.data;
-            vm.total = json.pageinfo.totalRows;
+            vm.total = json.pageinfo.totalRows*1;
             vm.title = this.$router.history.current.params.name;
         }).catch(err => {
 
@@ -145,29 +152,64 @@ export default {
         this.$jsonp(API.SEARCH,
           {
             type:type,
-            page:page
+            p:page
           }
         ).then(json => {
             vm.items = json.data;
-            console.log(vm.items);
             vm.total = json.pageinfo.totalRows*1;
-            console.log(vm.total);
             vm.title = this.$router.history.current.params.type;
-            //console.log(json.pageinfo);
+
         }).catch(err => {
 
         })
       },
-      search(pageNum, pageSize){
-        this.curPage = this.$router.history.current.params.page;
+      getLocalList(local, page){
+        var vm = this;
+        this.$jsonp(API.SEARCH,
+          {
+            local:local,
+            p:page
+          }
+        ).then(json => {
+            vm.items = json.data;
+            vm.total = json.pageinfo.totalRows*1;
+            //vm.title = this.$router.history.current.params.local;
+            console.log(this.$router.history.current.params.local);
+            switch(this.$router.history.current.params.local){
+              case "1":
+                vm.title = "欧美新片";
+                break;
+              case "2":
+                vm.title = "日韩新片";
+                break;
+              case "3":
+                vm.title = "东南亚";
+                break;
+              case "4":
+                vm.title = "支持国产";
+                break;
+              default:
+                break;
+            }
+        }).catch(err => {
+
+        })
       },
       //页码变更
       handleCurrentChange: function(val) {
           this.curPage = val;
           var type = this.$router.history.current.params.type;
-          this.getTypeList(type, this.curPage);
-          console.log(type,this.curPage);
-          console.log(type,this.curPage);
+          var name = this.$router.history.current.params.name;
+          var local = this.$router.history.current.params.local;
+
+          if (type != null){
+            this.getTypeList(type, this.curPage);
+          } else if (name != null){
+            this.getList(name, this.curPage);
+          } else if (local != null){
+            this.getLocalList(local, this.curPage);
+          }
+
           // this.loadData(this.criteria, this.curPage, this.pagesize);
       },
     },
@@ -184,6 +226,10 @@ export default {
           this.title = to.params.type;
         }
 
+        if (to.params.local != null){
+          this.getLocalList(to.params.local, to.params.page);
+
+        }
 
       }
     }
