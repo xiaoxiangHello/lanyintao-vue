@@ -174,7 +174,7 @@ export default {
             vm.items = json.data;
             vm.total = json.pageinfo.totalRows*1;
             //vm.title = this.$router.history.current.params.local;
-            console.log(this.$router.history.current.params.local);
+            // console.log(this.$router.history.current.params.local);
             switch(this.$router.history.current.params.local){
               case "1":
                 vm.title = "欧美新片";

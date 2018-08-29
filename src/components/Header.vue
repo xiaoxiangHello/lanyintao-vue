@@ -1,6 +1,6 @@
 <template>
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-   <router-link :to="IndexPage">
+   <router-link to="/">
    <div class="logo">
       <img :src="picUrl" height="50px">
       <span class="logo-title">
@@ -8,7 +8,7 @@
       </span>
     </div>
   </router-link>
-    <el-menu-item v-for="item in items" :index="item.id">
+    <el-menu-item v-for="item in items" :index="item.id" :key="item.id">
       <router-link :to="item.url">{{item.title}}</router-link>
     </el-menu-item>
     <div class="login-panel">
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
       handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
       },
       singin(){
 
@@ -55,7 +55,7 @@ export default {
 <style scoped>
 .logo{
   font-size:20px;
-  cursor: not-allowed;
+  /* cursor: not-allowed; */
   float: left;
 }
 .logo-title{
