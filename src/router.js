@@ -4,6 +4,8 @@ import About from './views/About.vue'
 import IndexPage from './views/Index.vue'
 import Rank from './views/Rank.vue'
 import ShowList from './views/ShowList.vue'
+import Login from './views/Login.vue'
+import Register from './views/Register.vue'
 
 Vue.use(Router)
 
@@ -25,20 +27,30 @@ export default new Router({
             component: Rank
         },
         {
-            path: '/showList/:name/:name/p/:page',
+            path: '/showList/name/:name/p/:page',
             name: 'showList',
             component: ShowList
         }
-        // ,
-        // {
-        //     path: '/showList/type/:type/p/:page',
-        //     name: 'showList',
-        //     component: ShowList
-        // },
-        // {
-        //     path: '/showList/local/:local/p/:page',
-        //     name: 'showList',
-        //     component: ShowList
-        // }
+        ,
+        {
+            path: '/showList/type/:type/p/:page',
+            name: 'showList',
+            component: ShowList
+        },
+        {
+            path: '/showList/local/:local/p/:page',
+            name: 'showList',
+            component: ShowList
+        },
+        {
+            path:'/Login',
+            name:'login',
+            component:Login
+        },
+        {
+            path:'/register',
+            name:'register',
+            component:Register
+        }
     ]
 })

@@ -17,7 +17,7 @@ export default {
   },
   data(){
     return {
-      title:"烂樱桃影评网",
+      title:"烂樱桃电影网",
       time:"2017-2018@COPYRIGHT",
       email:"mailto:xiaoxiangbao@hotmail.com",
       connect:"联系我们",

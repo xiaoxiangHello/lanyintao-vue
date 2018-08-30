@@ -117,7 +117,7 @@ export default {
       var page = this.$router.history.current.params.page;
       var type = this.$router.history.current.params.type;
       var local = this.$router.history.current.params.local;
-
+  console.log(this.$router);
       if (name != null) {
         this.getList(name, page)
       }
@@ -132,6 +132,7 @@ export default {
 
     },
     methods:{
+
       getList(name, page){
         var vm = this;
         this.$jsonp(API.SEARCH,
