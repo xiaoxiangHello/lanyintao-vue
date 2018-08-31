@@ -1,4 +1,5 @@
 var API_PREFIX = "http://www.lanyintao.com/Home/movieList/apiVueList/";
+var BASE_PREFIX = "http://www.lanyintao.com";
 
 module.exports = {
 	COMMON_API:API_PREFIX,
@@ -7,8 +8,9 @@ module.exports = {
 	US_FEED: API_PREFIX + "type/3/page/1",
 	KOREA: API_PREFIX + "type/4/page/1",
 	SOURTH: API_PREFIX + "type/5/page/1",
-	GUESS: "http://www.lanyintao.com/Home/movieList/apiVueGuess",
-	RANK:"http://www.lanyintao.com/Home/movieList/apiVueRankList",
-	FOCUS:"http://www.lanyintao.com/Home/movieList/apiFocusVueList",
-	SEARCH:"http://www.lanyintao.com/Home/movieList/apiSearchList",
+	GUESS: BASE_PREFIX +"/Home/movieList/apiVueGuess",
+	RANK: BASE_PREFIX +"/Home/movieList/apiVueRankList",
+	FOCUS: BASE_PREFIX +"/Home/movieList/apiFocusVueList",
+	SEARCH: BASE_PREFIX +"/Home/movieList/apiSearchList",
+	CHECK_LOGIN: BASE_PREFIX +"/Home/Header/apiCheckLgin",
 };

@@ -13,10 +13,10 @@
         <el-main class="main">
             <focus/>
             <MovieList title="最新电影" id="1" movie_type="0"/>
-            <MovieList title="国产电影" id="2" movie_type="1"/>
-            <MovieList title="欧美新片" id="3" movie_type="2"/>
-            <MovieList title="日韩新片" id="4" movie_type="3"/>
-            <MovieList title="东南亚" id="5" movie_type="4"/>
+            <MovieList title="国产电影" id="2" movie_type="1" listurl="/ShowList/local/4/p/1"/>
+            <MovieList title="欧美新片" id="3" movie_type="2" listurl="/ShowList/local/1/p/1"/>
+            <MovieList title="日韩新片" id="4" movie_type="3" listurl="/ShowList/local/2/p/1"/>
+            <MovieList title="东南亚" id="5" movie_type="4" listurl="/ShowList/local/3/p/1"/>
             <el-footer>
               <Footer/>
             </el-footer>

@@ -1,6 +1,10 @@
 <template>
   <div class="list">
-     <h2>{{title}}<font class="more"><a :href="moremovies">【更多】</a></font></h2>
+     <h2>{{title}}
+       <font class="more" v-if="movie_type != '0'">
+       <router-link :to="listurl">【更多】</router-link>
+       </font>
+     </h2>
      <div class="decrote-line"></div>
      <el-row :gutter="21">
        <el-col :span="4.8" v-for="item in items">
@@ -24,9 +28,9 @@ export default {
   },
   props: {
     title:String,
-    url:String,
     id:String,
     movie_type:String,
+    listurl:String,
   },
   data(){
     return{
@@ -34,9 +38,11 @@ export default {
       items:[],
       latest: [],
       main_land: [],
+      url:this.listurl
     }
   },
   mounted(){
+
     this.getList()
   },
   methods:{
@@ -48,7 +54,6 @@ export default {
           page:1
         }
       ).then(json => {
-
           vm.items = json.data
       }).catch(err => {
 
