@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import API from './api/index.js'
+import API from './api/index.js';
 export default {
   name: 'MovieList',
   components:{

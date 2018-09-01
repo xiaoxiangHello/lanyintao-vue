@@ -17,7 +17,8 @@
       <div class="tips">
         <el-button plain>点击获取短信验证码</el-button>
         <p>
-        <span style="margin-right:5px;">登录账号</span>|<span style="margin-left:5px;">忘记密码</span>
+        <router-link to="/login"><span style="margin-right:5px;">登录账号</span></router-link>|
+        <router-link to="/forget"><span style="margin-left:5px;">忘记密码</span></router-link>
         </p>
         <el-button plain>提交</el-button>
       </div>

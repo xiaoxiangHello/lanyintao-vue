@@ -11,17 +11,18 @@
     <el-menu-item v-for="item in items" :index="item.id" :key="item.id">
       <router-link :to="item.url">{{item.title}}</router-link>
     </el-menu-item>
-    <div class="login-panel">
-      <el-button @select="singin">登陆</el-button>
-      <el-button @select="singup">注册</el-button>
-    </div>
+    <LoginRegister />
   </el-menu>
 
 </template>
 
 <script>
+import LoginRegister from '@/components/LoginRegister.vue'
 export default {
   name: 'Header',
+  components: {
+    LoginRegister,
+  },
   props: {
     msg: String,
   },

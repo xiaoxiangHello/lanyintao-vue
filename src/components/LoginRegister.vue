@@ -1,9 +1,9 @@
 <template>
-  <div class="login-panel" v-if="code == 0">
-    <el-button @select="singin">登陆</el-button>
-    <el-button @select="singup">注册</el-button>
+  <div class="login-panel" v-if="code === 0">
+    <router-link to="/Login"><el-button>登陆</el-button></router-link>
+    <router-link to="/register"><el-button>注册</el-button></router-link>
   </div>
-  <div class="login-panel" v-if="code == 1">
+  <div class="login-panel" v-else>
     <img :src="data.picUrl" />
     <el-button @select="logout">注销</el-button>
   </div>
@@ -26,6 +26,7 @@ export default {
   },
   mounted(){
     this.checkLogin()
+    this.logout()
   },
   methods:{
     checkLogin(){
@@ -38,7 +39,10 @@ export default {
       }).catch(err => {
 
       })
-    }
+    },
+    logout(){
+
+    },
   }
 }
 </script>

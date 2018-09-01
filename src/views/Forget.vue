@@ -10,14 +10,14 @@
       </div>
       <div class="panel-input">
         <el-input v-model="input" placeholder="用户名(手机号)"></el-input>
-        <el-input v-model="input" placeholder="密码"></el-input>
+        <el-input v-model="input" placeholder="新密码"></el-input>
         <el-input v-model="input" placeholder="验证码"></el-input>
       </div>
 
       <div class="tips">
         <p>
           <router-link to="/register"><span style="margin-right:5px;">注册账号</span></router-link>|
-          <router-link to="/forget"><span style="margin-left:5px;">忘记密码</span></router-link>
+          <router-link to="/register"><span style="margin-left:5px;">登录</span></router-link>
         </p>
         <el-button plain>提交</el-button>
       </div>
