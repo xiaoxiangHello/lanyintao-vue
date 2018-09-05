@@ -6,12 +6,14 @@
     <p style="font-size:30px;"><b>欢迎您光临</b></p>
     <div class="panel">
       <div style="height:30px;">
-        <p style="padding-top:20px;color:red;"></p>
+        <p style="padding-top:20px;color:red;">
+          {{msg}}
+        </p>
       </div>
       <div class="panel-input">
-        <el-input v-model="input" placeholder="用户名(手机号)"></el-input>
-        <el-input v-model="input" placeholder="密码"></el-input>
-        <el-input v-model="input" placeholder="验证码"></el-input>
+        <el-input v-model="input1" placeholder="用户名(手机号)"></el-input>
+        <el-input v-model="input2" type="password" placeholder="密码"></el-input>
+        <!-- <el-input v-model="input" placeholder="验证码"></el-input> -->
       </div>
 
       <div class="tips">
@@ -19,7 +21,7 @@
           <router-link to="/register"><span style="margin-right:5px;">注册账号</span></router-link>|
           <router-link to="/forget"><span style="margin-left:5px;">忘记密码</span></router-link>
         </p>
-        <el-button plain>提交</el-button>
+        <el-button plain v-on:click="submit">提交</el-button>
       </div>
 
     </div>
@@ -30,8 +32,8 @@
 </el-container>
 </template>
 <script>
-import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import API from '@/components/api/index.js'
 
 export default {
   name: 'app',
@@ -42,7 +44,10 @@ export default {
     return {
       input:"",
       pageName: '烂樱桃(电影网)',
-      pic:"http://www.lanyintao.com/Public/img/Cherry.png"
+      pic:"http://www.lanyintao.com/Public/img/Cherry.png",
+      input1:"",
+      input2:"",
+      msg:""
     }
   },
   metaInfo () {
@@ -50,11 +55,37 @@ export default {
         title: this.pageName
       }
     },
-    mounted () {
-      setTimeout(() => {
-        this.pageName = this.pageName
-      }, 2000)
-    }
+  mounted () {
+    //  this.submit()
+  },
+  methods:{
+
+    submit(){
+      var vm = this;
+      this.$jsonp(API.LOGIN,
+        {
+          username:this.input1,
+          password:this.input2
+        }
+      ).then(json => {
+          console.log(json);
+          console.log(json.code);
+          if(json.code == 0) {
+            this.$router.push({
+                name: 'IndexPage',
+                params:{
+                }
+            });
+          } else {
+              vm.msg = json.msg;
+          }
+      }).catch(err => {
+
+      })
+    },
+
+
+    },
 }
 </script>
 

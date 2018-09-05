@@ -21,7 +21,7 @@
               <el-col :span="12" style="height:200px;text-align:left;">
                 <h5 class="one-line" style="margin-top:15px;">【片名】{{item.title}}</h5>
                 <p class="one-line">【导演】{{item.director}}</p>
-                <p class="one-line">【演员】{{item.director}}</p>
+                <p class="one-line">【演员】{{item.actors}}</p>
                 <p class="one-line">【地区】{{item.location}}</p>
                 <p class="one-line">【上映时间】{{item.show_time}}</p>
               </el-col>

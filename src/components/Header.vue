@@ -29,10 +29,10 @@ export default {
   data(){
     return {
       activeIndex:'1',
-      items:[{title:'支持国产', url:"/ShowList/local/4/p/1", id:"1"},
-             {title:'欧美新片', url:"/ShowList/local/1/p/1", id:"2"},
-             {title:'日韩新片', url:"/ShowList/local/2/p/1", id:"3"},
-             {title:'东南亚', url:"/ShowList/local/3/p/1", id:"4"}],
+      items:[{title:'国产电影', url:"/ShowList/local/4/p/1", id:"1"},
+             {title:'欧美电影', url:"/ShowList/local/1/p/1", id:"2"},
+             {title:'日韩电影', url:"/ShowList/local/2/p/1", id:"3"},
+             {title:'东南亚电影', url:"/ShowList/local/3/p/1", id:"4"}],
       picUrl:"http://www.lanyintao.com/Public/img/Cherry.png",
     }
   },

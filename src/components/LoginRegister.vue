@@ -4,8 +4,16 @@
     <router-link to="/register"><el-button>注册</el-button></router-link>
   </div>
   <div class="login-panel" v-else>
-    <img :src="data.picUrl" />
-    <el-button @select="logout">注销</el-button>
+    <el-row :gutter="20">
+      <el-col :span="12">
+        <div>
+            <img :src="data.littlePic" style="width:45px;height:45px;border-radius:50%" />
+        </div>
+      </el-col>
+      <el-col :span="8">
+        <el-button v-on:click="logout">注销</el-button>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
@@ -26,7 +34,7 @@ export default {
   },
   mounted(){
     this.checkLogin()
-    this.logout()
+    //this.logout()
   },
   methods:{
     checkLogin(){
@@ -41,6 +49,13 @@ export default {
       })
     },
     logout(){
+      var vm = this;
+      this.$jsonp(API.LOGOUT,{}
+      ).then(json => {
+        vm.code = 0;
+      }).catch(err => {
+
+      })
 
     },
   }

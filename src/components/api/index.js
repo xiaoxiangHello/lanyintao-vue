@@ -12,5 +12,7 @@ module.exports = {
 	RANK:BASE_PREFIX +"/Home/movieList/apiVueRankList",
 	FOCUS:BASE_PREFIX +"/Home/movieList/apiFocusVueList",
 	SEARCH:BASE_PREFIX +"/Home/movieList/apiSearchList",
-	CHECK_LOGIN:BASE_PREFIX +"/Home/Header/apiCheckLgin",
+	CHECK_LOGIN:BASE_PREFIX +"/Home/Header/apiCheckLogin",
+	LOGOUT:BASE_PREFIX+"/Home/Header/apiLogout",
+	LOGIN:BASE_PREFIX+"/Home/Login/apiLogin",
 };
