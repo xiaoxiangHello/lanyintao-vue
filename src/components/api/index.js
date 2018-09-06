@@ -15,4 +15,6 @@ module.exports = {
 	CHECK_LOGIN:BASE_PREFIX +"/Home/Header/apiCheckLogin",
 	LOGOUT:BASE_PREFIX+"/Home/Header/apiLogout",
 	LOGIN:BASE_PREFIX+"/Home/Login/apiLogin",
+	VERIFYCODE:BASE_PREFIX+"/Home/Login/apiVerify",
+	REGISTER:BASE_PREFIX+"/Home/login/apiRegister",
 };

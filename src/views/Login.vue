@@ -34,7 +34,7 @@
 <script>
 import Footer from '@/components/Footer.vue'
 import API from '@/components/api/index.js'
-
+import axios from 'axios';
 export default {
   name: 'app',
   components: {
@@ -59,7 +59,6 @@ export default {
     //  this.submit()
   },
   methods:{
-
     submit(){
       var vm = this;
       this.$jsonp(API.LOGIN,
@@ -82,7 +81,7 @@ export default {
       }).catch(err => {
 
       })
-    },
+   },
 
 
     },
