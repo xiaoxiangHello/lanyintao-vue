@@ -32,10 +32,11 @@
           </el-main>
           <el-main class="aside-2">
             <h4>点击排行榜</h4>
-            <Rank/>
+            <Rank />
           </el-main>
-          <el-main class="aside-1">
+          <el-main class="aside-2">
             <h4>热门影评</h4>
+            <CommentRank />
           </el-main>
 
 
@@ -57,6 +58,8 @@ import Tags from '@/components/Tag.vue'
 import Guess from '@/components/Guess.vue'
 import Rank from '@/components/RankList.vue'
 import Search from '@/components/Search.vue'
+import CommentRank from '@/components/CommentRank.vue'
+import API from '@/components/api/index.js'
 
 
 export default {
@@ -70,6 +73,7 @@ export default {
     Guess,
     Rank,
     Search,
+    CommentRank,
   },
   data(){
     return {
@@ -121,7 +125,7 @@ export default {
   background-color: #fff;
 }
 .aside-1{
-  height: 600px;
+  height: 650px;
   background-color: #eee;
   text-align: left;
 }

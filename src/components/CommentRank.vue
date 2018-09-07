@@ -25,7 +25,7 @@
 <script>
 import API from './api/index.js'
 export default {
-  name: 'Focus',
+  name: 'CommentRank',
   props: {
     msg: String,
     item: String,
@@ -41,11 +41,12 @@ export default {
   methods:{
       getList(){
         var vm = this;
-        this.$jsonp(API.RANK,{}
+        this.$jsonp(API.COMMENT_RANK,{}
         ).then(json => {
+          console.log(json);
             vm.items = json.data
         }).catch(err => {
-          console.log(err)
+          // console.log(err)
         })
       }
   }

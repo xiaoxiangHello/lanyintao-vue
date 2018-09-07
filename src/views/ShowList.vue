@@ -55,9 +55,10 @@
             <h4>点击排行榜</h4>
             <Rank/>
           </el-main>
-          <!-- <el-main class="aside-1">
+          <el-main class="aside-2">
             <h4>热门影评</h4>
-          </el-main> -->
+            <CommentRank />
+          </el-main>
 
 
         </el-aside>
@@ -79,6 +80,7 @@ import Rank from '@/components/RankList.vue'
 import Search from '@/components/Search.vue'
 // import Page from '@/components/Page.vue'
 import API from '@/components/api/index.js'
+import CommentRank from '@/components/CommentRank.vue'
 
 export default {
   name: 'app',
@@ -89,6 +91,7 @@ export default {
     Guess,
     Rank,
     Search,
+    CommentRank
     // Page,
   },
   data(){
@@ -117,7 +120,7 @@ export default {
       var page = this.$router.history.current.params.page;
       var type = this.$router.history.current.params.type;
       var local = this.$router.history.current.params.local;
-  console.log(this.$router);
+
       if (name != null) {
         this.getList(name, page)
       }

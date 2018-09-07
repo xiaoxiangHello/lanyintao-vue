@@ -30,7 +30,6 @@ export default {
       this.$jsonp(API.FOCUS,{}
       ).then(json => {
          vm.items = json.data;
-         console.log(json.data);
 
       }).catch(err => {
 

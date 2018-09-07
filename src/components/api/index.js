@@ -17,4 +17,6 @@ module.exports = {
 	LOGIN:BASE_PREFIX+"/Home/Login/apiLogin",
 	VERIFYCODE:BASE_PREFIX+"/Home/Login/apiVerify",
 	REGISTER:BASE_PREFIX+"/Home/login/apiRegister",
+	FORGET:BASE_PREFIX+"/Home/login/apiForget",
+	COMMENT_RANK:BASE_PREFIX+"/Home/movieList/apiHotComment",
 };

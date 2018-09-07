@@ -106,7 +106,7 @@ export default {
          this.msg = '请填写用户名';
        }else {
          this.$jsonp(API.VERIFYCODE,
-           {number:this.input1}
+           {number:this.input1,type:'register'}
          ).then(json => {
              if(json.code == 1){
                this.sendVerify = 1;
