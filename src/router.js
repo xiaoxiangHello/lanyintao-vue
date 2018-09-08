@@ -7,6 +7,7 @@ import ShowList from './views/ShowList.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import Forget from './views/Forget.vue'
+import Detail from './views/Detail.vue'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
             path:'/forget',
             name:'forget',
             component:Forget
+        },
+        {
+          path:'/detail/id/:id',
+          name:'detail',
+          component:Detail
         }
     ]
 })
