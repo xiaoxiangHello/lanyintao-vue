@@ -19,5 +19,7 @@ module.exports = {
 	REGISTER:BASE_PREFIX+"/Home/login/apiRegister",
 	FORGET:BASE_PREFIX+"/Home/login/apiForget",
 	COMMENT_RANK:BASE_PREFIX+"/Home/movieList/apiHotComment",
-	GETMOVIE:BASE_PREFIX+"/Home/movieList/apiDetail"
+	GETMOVIE:BASE_PREFIX+"/Home/movieList/apiDetail",
+	MOVIE_COMMENT:BASE_PREFIX+"/Home/movieList/apiMovieComment",
+	POST_SCORE:BASE_PREFIX+"/Home/movieList/apiPostScore"
 };
