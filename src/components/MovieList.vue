@@ -9,10 +9,10 @@
      <el-row :gutter="21">
        <el-col :span="4.8" v-for="item in items">
          <div class="grid-content bg-purple">
-           <a :href="item.url">
+            <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
              <img :data-src="item.pic" class="movie-item lazyImg"/>
-             <p class="movie-title">{{item.title}}</p>
-           </a>
+             <p class="movie-title"><b>{{item.title}}</b></p>
+            </router-link>
          </div>
        </el-col>
    </el-row>
@@ -109,6 +109,7 @@ export default {
   }
   .movie-item{
     height:210px;
+    width: 140px;
     margin-left: auto;
     margin-right: auto;
   }

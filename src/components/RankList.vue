@@ -1,13 +1,12 @@
 <template>
   <el-row :gutter="24" class="row">
     <div v-for="(item,key) in items">
-    <el-col :span="20" >
+      <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
+    <el-col :span="20" style="color:#333;">
       <p>
-        <a :href="item.url" target="_blank" style="text-decoration:none;color:#333;">
           <span style="font-size:20px;weight:blod;padding-right:10px;color:red;" v-if="item.rank < 6">{{item.rank}}</span>
           <span style="font-size:20px;weight:blod;padding-right:10px;" v-else>{{item.rank}}</span>
           <span>[{{item.title}}]</span>
-        </a>
       </p>
       <p style="margin-left:22px;">
         [{{item.show_time}}][{{item.location}}]
@@ -18,6 +17,7 @@
           <span>{{item.count}}</span>
       </p>
     </el-col>
+      </router-link>
     </div>
   </el-row>
 </template>
