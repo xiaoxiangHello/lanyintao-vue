@@ -61,24 +61,22 @@
                 <div class="grid-content bg-purple" style="text-align:left;">
                   <h1 style="font-size:30px;">{{items.title}}</h1>
                   <p><b>导演:</b></p>
-                  <p style="background:#eee;padding:10px;">{{items.director}}</p>
+                  <p style="background:#eee;padding:10px;line-height:25px;">{{items.director}}</p>
                   <p><b>演员:</b></p>
-                  <p style="background:#eee;padding:10px;">{{items.actors}}</p>
+                  <p style="background:#eee;padding:10px;line-height:25px;">{{items.actors}}</p>
                   <p><b>上映时间:</b></p>
                     <p style="background:#eee;padding:10px;">{{items.show_time}}</p>
                   <p><b>地区:</b></p>
                   <p style="background:#eee;padding:10px;">{{items.location}}</p>
                   <p><b>bt链接:</b></p>
-                  <p style="background:#eee;padding:10px;word-wrap:break-word;word-break:break-all;">{{items.bt}}</p>
+                  <p style="background:#eee;padding:10px;word-wrap:break-word;word-break:break-all;line-height:20px;color:#333;">{{items.bt}}</p>
                   <p><b>简介:</b></p>
-                  <p style="background:#eee;padding:10px;">{{items.summary}}</p>
+                  <p style="background:#eee;padding:10px;text-indent:20px;line-height:25px;">{{items.summary}}</p>
                 </div>
               </el-col>
             </el-row>
             <div style="height:50px;border-top:1px solid #eee;margin-top:60px;"></div>
-              <Comment/>
-
-
+            <Comment/>
             <el-footer>
               <Footer/>
             </el-footer>

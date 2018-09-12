@@ -11,7 +11,31 @@
         <el-main class="main">
           <h2 style="text-align:left;">找到关于<span style="color:red;">{{title}}</span>的影片共<span style="color:red;">{{total}}</span>个:</h2>
 
-          
+          <el-row :gutter="24" style="min-height:1800px;">
+            <div v-for="item in items" style="height:200px;border:1px solid #eee;padding-top:20px;" :key="item.id">
+              <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
+              <el-col :span="8">
+                 <img :data-src="item.pic" class="movie-item lazyImg" style="height:180px;width:120px;"/>
+              </el-col>
+              <el-col :span="12" style="height:200px;text-align:left;">
+                <h5 class="one-line" style="margin-top:15px;">【片名】{{item.title}}</h5>
+                <p class="one-line">【导演】{{item.director}}</p>
+                <p class="one-line">【演员】{{item.actors}}</p>
+                <p class="one-line">【地区】{{item.location}}</p>
+                <p class="one-line">【上映时间】{{item.show_time}}</p>
+              </el-col>
+            </router-link>
+            </div>
+            <el-pagination
+              style="margin-top:30px;"
+              background
+              layout="prev, pager, next"
+              :current-page="curPage"
+              :total="total"
+              @current-change="handleCurrentChange"
+              >
+            </el-pagination>
+           </el-row>
 
             <el-footer>
               <Footer/>

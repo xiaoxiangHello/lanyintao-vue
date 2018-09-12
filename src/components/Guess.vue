@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="24" class="row">
     <div v-for="item in items" style="border:1px solid #eee;">
-      <a :href="item.url" target="_blank">
+      <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
       <el-col :span="10">
         <img :src="item.pic" height="160px;"/>
       </el-col>
@@ -11,7 +11,7 @@
         <p>{{item.location}}</p>
         <p>{{item.show_time}}</p>
       </el-col>
-    </a>
+    </router-link>
     </div>
   </el-row>
 </template>
