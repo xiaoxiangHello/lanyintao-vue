@@ -8,6 +8,7 @@ import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import Forget from './views/Forget.vue'
 import Detail from './views/Detail.vue'
+import User from './views/User.vue'
 
 Vue.use(Router)
 
@@ -63,6 +64,11 @@ export default new Router({
           path:'/detail/id/:id',
           name:'detail',
           component:Detail
+        },
+        {
+          path:'/user/id/:id',
+          name:'user',
+          component:User
         }
     ]
 })

@@ -21,5 +21,6 @@ module.exports = {
 	COMMENT_RANK:BASE_PREFIX+"/Home/movieList/apiHotComment",
 	GETMOVIE:BASE_PREFIX+"/Home/movieList/apiDetail",
 	MOVIE_COMMENT:BASE_PREFIX+"/Home/movieList/apiMovieComment",
-	POST_SCORE:BASE_PREFIX+"/Home/movieList/apiPostScore"
+	POST_SCORE:BASE_PREFIX+"/Home/movieList/apiPostScore",
+	GET_USER:BASE_PREFIX+"/Home/user/apiUserInfo",
 };
