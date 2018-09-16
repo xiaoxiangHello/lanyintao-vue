@@ -3,7 +3,7 @@
     <div v-for="item in items" style="border:1px solid #eee;">
       <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
       <el-col :span="10">
-        <img :src="item.pic" height="160px;"/>
+        <img :src="item.pic" height="160px;" width="110px;"/>
       </el-col>
       <el-col :span="14" style="height:170px;text-align:left;overflow:hidden;white-space:nowrap;">
         <h5 style="margin-top:15px;">{{item.title}}</h5>

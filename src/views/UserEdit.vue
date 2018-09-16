@@ -17,30 +17,29 @@
               <el-col :span="12" style="text-align:left;margin-top:45px;margin-left:0px;">
                   <h1>{{items.nickname}}</h1>
                   <p>{{items.summary}}</p>
-                  <router-link :to="{path:'/useredit/id/'+items.id}" target="_blank"><p>[编辑信息]</p></router-link>
+                  <router-link :to="{path:'/useredit/id/'+items.userid}" target="_blank"><p>[编辑信息]</p></router-link>
               </el-col>
             </div>
             </el-row>
             <div style="height:50px;border-top:1px solid #eee;margin-top:60px;"></div>
             <h1 style="text-align:left;">我的动态</h1>
             <el-row :gutter="26">
-              <div v-if="comments.length !== 0">
-                <div v-for="comment in comments" >
-                  <div style="height:150px;border:1px solid #eee;background:#eee;">
-                  <router-link :to="{path:'/detail/id/'+comment.movieid}" target="_blank">
-                  <el-col :span="8" style="margin-top:35px;border-right:1px solid rgba(51, 51, 51, 0.29);text-align:right;">
-                     <h1>{{comment.pubtimeday}}</h1>
-                     <p>{{comment.pubtimehour}}</p>
-                  </el-col>
-                  <el-col :span="10" style="margin-top:40px;text-align:left;margin-left:30px;">
-                      <h1>对《{{comment.moviename}}》发表了评论</h1>
-                      <p>{{comment.content}}</p>
-                  </el-col>
-                      </router-link>
-                  </div>
+              <div v-for="comment in comments" >
+                <div style="height:150px;border:1px solid #eee;background:#eee;">
+                <router-link :to="{path:'/detail/id/'+comment.movieid}" target="_blank">
+                <el-col :span="8" style="margin-top:35px;border-right:1px solid rgba(51, 51, 51, 0.29);text-align:right;">
+                   <h1>{{comment.pubtimeday}}</h1>
+                   <p>{{comment.pubtimehour}}</p>
+                </el-col>
+                <el-col :span="10" style="margin-top:40px;text-align:left;margin-left:30px;">
+                    <h1>对《{{comment.moviename}}》发表了评论</h1>
+                    <p>{{comment.content}}</p>
+                </el-col>
+                    </router-link>
                 </div>
+
               </div>
-              <div v-else>
+              <div vl-else>
                 <div  style="height:150px;border:1px solid #eee;background:#eee;">
                   <p style="margin-top:70px;">还没有动态，快去互动吧</p>
                 </div>

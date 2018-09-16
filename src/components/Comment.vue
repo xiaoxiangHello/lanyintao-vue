@@ -57,7 +57,7 @@
     <el-row :gutter="24" class="row">
       <div v-for="(item,key) in items">
         <div style="border-top:1px solid #eee;height:130px;padding:10px;">
-      <el-col :span="3" style="height:130px;">
+      <el-col :span="4" style="height:130px;">
         <img :src="item.littlepic" width="50px;">
         <p>{{item.nickname}}</p>
       </el-col>
