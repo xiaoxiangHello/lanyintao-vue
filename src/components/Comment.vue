@@ -50,7 +50,7 @@
   placeholder="请输入内容"
   v-model="textarea">
   </el-input>
-  <el-button style="margin-top:10px;" v-on:click="submitScore">提交</el-button>
+  <el-button style="margin-top:10px;" v-on:click="submitComment">提交</el-button>
     <div style="height:50px;border-top:1px solid #eee;margin-top:60px;"></div>
   <h1 style="text-align:left;margin-top:10px;">精彩评论</h1>
   <div v-if="items.length != 0">
@@ -107,7 +107,6 @@ export default {
         }
         ).then(json => {
             vm.items = json.data
-            console.log(vm.items.length);
         }).catch(err => {
           // console.log(err)
         })
@@ -123,7 +122,36 @@ export default {
          }).catch(err => {
 
          })
+      },
+
+      submitComment(){
+
+        this.$jsonp(API.POST_COMMENT, {
+           id:this.$router.history.current.params.id,
+           content:this.textarea,
+        }).then(json => {
+
+          if(json.code == 3){
+            this.$router.push({
+                name: 'login',
+                params:{
+                }
+            });
+          } else if(json.code == 1){
+             getList(this.$router.history.current.params.id);
+          } else{
+            alert(json.msg);
+          }
+        }).catch(err => {
+
+        })
       }
+  },
+  watch:{
+    name(items){
+
+    }
+
   }
 }
 </script>
