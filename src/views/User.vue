@@ -12,7 +12,7 @@
             <el-row :gutter="26">
               <div style="height:200px;border:1px solid #eee;background:#eee;">
               <el-col :span="8" style="margin-top:30px;">
-                 <img :src="items.littlepic" style="float:right;"/>
+                 <img :src="items.littlepic" style="float:right;width:120px;height:120px;"/>
               </el-col>
               <el-col :span="12" style="text-align:left;margin-top:45px;margin-left:0px;">
                   <h1>{{items.nickname}}</h1>
@@ -26,7 +26,7 @@
             <el-row :gutter="26">
               <div v-if="comments.length !== 0">
                 <div v-for="comment in comments" >
-                  <div style="height:150px;border:1px solid #eee;background:#eee;">
+                  <div style="height:130px;border:1px solid #eee;background:#eee;margin-top:10px;">
                   <router-link :to="{path:'/detail/id/'+comment.movieid}" target="_blank">
                   <el-col :span="8" style="margin-top:35px;border-right:1px solid rgba(51, 51, 51, 0.29);text-align:right;">
                      <h1>{{comment.pubtimeday}}</h1>

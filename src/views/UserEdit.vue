@@ -10,39 +10,25 @@
       <el-container>
         <el-main class="main">
             <el-row :gutter="26">
-              <div style="height:200px;border:1px solid #eee;background:#eee;">
-              <el-col :span="8" style="margin-top:30px;">
+              <div style="height:350px;border:1px solid #eee;background:#eee;">
+              <el-col :span="8" style="margin-top:60px;">
                  <img :src="items.littlepic" style="float:right;"/>
               </el-col>
               <el-col :span="12" style="text-align:left;margin-top:45px;margin-left:0px;">
-                  <h1>{{items.nickname}}</h1>
-                  <p>{{items.summary}}</p>
-                  <router-link :to="{path:'/useredit/id/'+items.userid}" target="_blank"><p>[编辑信息]</p></router-link>
+                  <h1 style="margin-left:10px;">编辑头像</h1>
+                  <el-button v-on:click="uploadPic">上传头像</el-button>
+                  <el-input v-model="input1" placeholder="昵称" style="margin-top:20px;"></el-input>
+                  <el-input
+                    type="textarea"
+                    :rows="3"
+                    placeholder="简介"
+                    v-model="textarea"
+                    style="margin-top:10px;"
+                    >
+                  </el-input>
+                  <el-button v-on:click="sumbit" style="margin-top:10px;">提交</el-button>
               </el-col>
-            </div>
-            </el-row>
-            <div style="height:50px;border-top:1px solid #eee;margin-top:60px;"></div>
-            <h1 style="text-align:left;">我的动态</h1>
-            <el-row :gutter="26">
-              <div v-for="comment in comments" >
-                <div style="height:150px;border:1px solid #eee;background:#eee;">
-                <router-link :to="{path:'/detail/id/'+comment.movieid}" target="_blank">
-                <el-col :span="8" style="margin-top:35px;border-right:1px solid rgba(51, 51, 51, 0.29);text-align:right;">
-                   <h1>{{comment.pubtimeday}}</h1>
-                   <p>{{comment.pubtimehour}}</p>
-                </el-col>
-                <el-col :span="10" style="margin-top:40px;text-align:left;margin-left:30px;">
-                    <h1>对《{{comment.moviename}}》发表了评论</h1>
-                    <p>{{comment.content}}</p>
-                </el-col>
-                    </router-link>
-                </div>
 
-              </div>
-              <div vl-else>
-                <div  style="height:150px;border:1px solid #eee;background:#eee;">
-                  <p style="margin-top:70px;">还没有动态，快去互动吧</p>
-                </div>
               </div>
             </el-row>
 
@@ -89,6 +75,9 @@ export default {
        items:[],
        title:"",
        comments:null,
+       textarea:"",
+       input1:"",
+       input2:"",
     }
   },
   metaInfo () {
@@ -117,8 +106,13 @@ export default {
 
         })
 
-      }
+      },
+      uploadPic(){
 
+      },
+      submit(){
+
+      }
     },
 }
 </script>

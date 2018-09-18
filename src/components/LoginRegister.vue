@@ -7,7 +7,9 @@
     <el-row :gutter="20">
       <el-col :span="12">
         <div>
+          <router-link :to="{path:'/user/id/'+ data.userid}" target="_blank">
             <img :src="data.littlePic" style="width:45px;height:45px;border-radius:50%" />
+          </router-link>
         </div>
       </el-col>
       <el-col :span="8">

@@ -101,12 +101,11 @@ export default {
   },
   methods:{
       getList(id){
-        var vm = this;
         this.$jsonp(API.MOVIE_COMMENT,{
           id:id
         }
         ).then(json => {
-            vm.items = json.data
+            this.items = json.data
         }).catch(err => {
           // console.log(err)
         })
@@ -138,7 +137,14 @@ export default {
                 }
             });
           } else if(json.code == 1){
-             getList(this.$router.history.current.params.id);
+             this.$jsonp(API.MOVIE_COMMENT,{
+               id:this.$router.history.current.params.id
+             }
+             ).then(json => {
+                 this.items = json.data
+             }).catch(err => {
+               // console.log(err)
+             })
           } else{
             alert(json.msg);
           }
@@ -148,8 +154,11 @@ export default {
       }
   },
   watch:{
-    name(items){
-
+    items:{
+      handler:function(val, oldval){
+        console.log(val);
+      },
+      deep:true
     }
 
   }
