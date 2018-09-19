@@ -17,7 +17,7 @@
               <el-col :span="12" style="text-align:left;margin-top:45px;margin-left:0px;">
                   <h1>{{items.nickname}}</h1>
                   <p>{{items.summary}}</p>
-                  <router-link :to="{path:'/useredit/id/'+items.id}" target="_blank"><p>[编辑信息]</p></router-link>
+                  <router-link :to="{path:'/useredit/id/'+items.userid}" target="_blank"><p>[编辑信息]</p></router-link>
               </el-col>
             </div>
             </el-row>

@@ -12,11 +12,11 @@
             <el-row :gutter="26">
               <div style="height:350px;border:1px solid #eee;background:#eee;">
               <el-col :span="8" style="margin-top:60px;">
-                 <img :src="items.littlepic" style="float:right;"/>
+                 <img :src="pic" style="float:right;height:150px;width:150px;"/>
               </el-col>
               <el-col :span="12" style="text-align:left;margin-top:45px;margin-left:0px;">
                   <h1 style="margin-left:10px;">编辑头像</h1>
-                  <el-button v-on:click="uploadPic">上传头像</el-button>
+                  <el-input v-on:change="uploadPic" type="file" name="photo">上传头像</el-input>
                   <el-input v-model="input1" placeholder="昵称" style="margin-top:20px;"></el-input>
                   <el-input
                     type="textarea"
@@ -26,7 +26,7 @@
                     style="margin-top:10px;"
                     >
                   </el-input>
-                  <el-button v-on:click="sumbit" style="margin-top:10px;">提交</el-button>
+                  <el-button v-on:click="sumbitInfo" style="margin-top:10px;">提交</el-button>
               </el-col>
 
               </div>
@@ -78,6 +78,12 @@ export default {
        textarea:"",
        input1:"",
        input2:"",
+       imgs: [],
+       imgData: {
+           accept: 'image/gif, image/jpeg, image/png, image/jpg',
+       },
+       pic:""
+
     }
   },
   metaInfo () {
@@ -99,19 +105,63 @@ export default {
             id:id,
           }
         ).then(json => {
-            vm.items = json.data;
-            vm.comments = json.comments;
-            console.log(json);
+            vm.items = json.data.nickname;
+            console.log(json.data);
+            this.input1 = json.data.nickname;
+            this.textarea = json.data.summary;
+            this.pic = json.data.littlepic;
         }).catch(err => {
 
         })
 
       },
       uploadPic(){
+            let reader =new FileReader();
+            let img1=event.target.files[0];
+            let type=img1.type;//文件的类型，判断是否是图片
+            let size=img1.size;//文件的大小，判断图片的大小
+            if(this.imgData.accept.indexOf(type) == -1){
+                alert('请选择我们支持的图片格式！');
+                return false;
+            }
+            if(size>3145728){
+                alert('请选择3M以内的图片！');
+                return false;
+            }
+            var uri = ''
+            let form = new FormData();
+
+            form.append('photo',img1, img1.name);
+
+            this.$http.post('http://www.lanyintao.com/home/user/apiUploadLogo', form,{
+              header:{'Content-Type':'multipart/form-data'},
+              emulateJSON:true
+            }).then(response =>{
+              //this.item.littlepic = response.data.picurl;
+              var data = JSON.parse(response.data);
+              this.pic = data.picurl;
+            }).catch(error =>{
+              alert('上传错误');
+            })
 
       },
-      submit(){
+      sumbitInfo(){
+        this.$http.post('http://www.lanyintao.com/home/user/apiModifyUserInfo',
+        {
+          userid:this.$router.history.current.params.id,
+          name:this.input1,
+          summary:this.textarea,
+          pic:this.pic
+        },
+        {
+          emulateJSON:true
+        }).then(response =>{
+          var data = JSON.parse(response.data);
+          console.log(data);
 
+        }).catch(error =>{
+          alert('修改失败');
+        })
       }
     },
 }
