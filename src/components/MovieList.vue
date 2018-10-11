@@ -6,8 +6,10 @@
        </font>
      </h2>
      <div class="decrote-line"></div>
-     <el-row :gutter="21">
-       <el-col :span="4.8" v-for="item in items">
+
+     <el-row>
+
+       <el-col :span="6" v-for="item in items">
          <div class="grid-content bg-purple">
             <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
              <img :data-src="item.pic" class="movie-item lazyImg"/>
@@ -15,7 +17,9 @@
             </router-link>
          </div>
        </el-col>
-   </el-row>
+
+
+      </el-row>
   </div>
 </template>
 
@@ -38,7 +42,8 @@ export default {
       items:[],
       latest: [],
       main_land: [],
-      url:this.listurl
+      url:this.listurl,
+      counts:[1,2,3,4],
     }
   },
   mounted(){
@@ -108,8 +113,8 @@ export default {
     background-color: #f9fafc;
   }
   .movie-item{
-    height:210px;
-    width: 140px;
+    height:220px;
+    width: 150px;
     margin-left: auto;
     margin-right: auto;
   }

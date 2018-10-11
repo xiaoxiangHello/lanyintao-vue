@@ -24,7 +24,7 @@
             <div style="height:50px;border-top:1px solid #eee;margin-top:60px;"></div>
             <h1 style="text-align:left;">我的动态</h1>
             <el-row :gutter="26">
-              <div v-if="comments.length !== 0">
+              <div v-if="comments !== null">
                 <div v-for="comment in comments" >
                   <div style="height:130px;border:1px solid #eee;background:#eee;margin-top:10px;">
                   <router-link :to="{path:'/detail/id/'+comment.movieid}" target="_blank">
@@ -89,7 +89,7 @@ export default {
        pageName: "烂樱桃_电影_用户中心",
        items:[],
        title:"",
-       comments:null,
+       comments:[],
     }
   },
   metaInfo () {
@@ -113,7 +113,6 @@ export default {
         ).then(json => {
             vm.items = json.data;
             vm.comments = json.comments;
-            console.log(json);
         }).catch(err => {
 
         })

@@ -24,7 +24,7 @@
                 <p class="one-line">【地区】{{item.location}}</p>
                 <p class="one-line">【上映时间】{{item.show_time}}</p>
               </el-col>
-            </router-link>
+              </router-link>
             </div>
             <el-pagination
               style="margin-top:30px;"
@@ -45,6 +45,10 @@
           <el-main class="aside-0">
             <h4>影片分类</h4>
             <Tags/>
+          </el-main>
+          <el-main class="aside-0" style="margin-top:20px;">
+            <h4>影片地区</h4>
+            <Location/>
           </el-main>
           <el-main class="aside-3">
             <h4>猜你喜欢</h4>
@@ -80,6 +84,7 @@ import Search from '@/components/Search.vue'
 // import Page from '@/components/Page.vue'
 import API from '@/components/api/index.js'
 import CommentRank from '@/components/CommentRank.vue'
+import Location from '@/components/Location'
 
 export default {
   name: 'app',
@@ -90,7 +95,8 @@ export default {
     Guess,
     Rank,
     Search,
-    CommentRank
+    CommentRank,
+    Location
     // Page,
   },
   data(){
@@ -108,7 +114,7 @@ export default {
   },
   metaInfo () {
       return {
-        title: this.pageName+this.title
+        title: this.pageName+this.title,
       }
     },
     mounted () {
@@ -119,6 +125,8 @@ export default {
       var page = this.$router.history.current.params.page;
       var type = this.$router.history.current.params.type;
       var local = this.$router.history.current.params.local;
+      var pos = this.$router.history.current.params.pos;
+
 
       if (name != null) {
         this.getList(name, page)
@@ -130,6 +138,10 @@ export default {
 
       if (local != null) {
         this.getLocalList(local, page)
+      }
+
+      if (pos != null) {
+        this.getPosList(pos, page)
       }
 
     },
@@ -166,6 +178,19 @@ export default {
 
         })
       },
+      getPosList(pos, page){
+        var vm = this;
+        this.$jsonp("http://www.lanyintao.com/home/MovieList/apiGetPos",
+          {
+            pos:pos,
+            p:page
+          }
+        ).then(json => {
+            vm.items = json.data;
+            vm.total = json.pageinfo.totalRows*1;
+            vm.title = this.$router.history.current.params.pos;
+        })
+      },
       getLocalList(local, page){
         var vm = this;
         this.$jsonp(API.SEARCH,
@@ -189,7 +214,7 @@ export default {
                 vm.title = "东南亚";
                 break;
               case "4":
-                vm.title = "支持国产";
+                vm.title = "国产电影";
                 break;
               default:
                 break;
@@ -204,6 +229,7 @@ export default {
           var type = this.$router.history.current.params.type;
           var name = this.$router.history.current.params.name;
           var local = this.$router.history.current.params.local;
+          var pos = this.$router.history.current.params.pos;
 
           if (type != null){
             this.getTypeList(type, this.curPage);
@@ -211,6 +237,8 @@ export default {
             this.getList(name, this.curPage);
           } else if (local != null){
             this.getLocalList(local, this.curPage);
+          } else if (pos != null){
+            this.getPosList(pos, this.curPage);
           }
 
           // this.loadData(this.criteria, this.curPage, this.pagesize);
@@ -231,7 +259,10 @@ export default {
 
         if (to.params.local != null){
           this.getLocalList(to.params.local, to.params.page);
+        }
 
+        if(to.params.pos != null){
+          this.getPosList(to.params.pos, to.params.page);
         }
 
       }

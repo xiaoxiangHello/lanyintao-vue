@@ -106,7 +106,6 @@ export default {
           }
         ).then(json => {
             vm.items = json.data.nickname;
-            console.log(json.data);
             this.input1 = json.data.nickname;
             this.textarea = json.data.summary;
             this.pic = json.data.littlepic;
@@ -157,10 +156,10 @@ export default {
           emulateJSON:true
         }).then(response =>{
           var data = JSON.parse(response.data);
-          console.log(data);
+          alert(data.msg);
 
         }).catch(error =>{
-          alert('修改失败');
+          alert(data.msg);
         })
       }
     },
@@ -174,7 +173,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 90%;
+  width: 84%;
   margin-left: auto;
   margin-right: auto;
 }

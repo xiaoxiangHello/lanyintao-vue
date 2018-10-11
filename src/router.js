@@ -14,6 +14,7 @@ import UserEdit from './views/UserEdit.vue'
 Vue.use(Router)
 
 export default new Router({
+    base:'/lanyintao-vue/',
     mode: 'history',
     routes: [{
             path: '/',
@@ -45,6 +46,12 @@ export default new Router({
             path: '/showList/local/:local/p/:page',
             name: 'showList',
             component: ShowList
+        },
+        {
+            path: '/showList/pos/:pos/p/:page',
+            name: 'showList',
+            component: ShowList
+
         },
         {
             path:'/Login',

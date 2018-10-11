@@ -13,13 +13,13 @@
               <el-col :span="12">
                 <div class="grid-content bg-purple">
                   <img :src="items.pic" style="width:300px;margin-bottom:20px;"/>
-                  <el-row :gutter="20">
-                    <el-col :span="10">
+                  <el-row>
+                    <el-col :span="8">
                       <p style="line-height:0px;"><b>剧情</b></p>
                     </el-col>
-                    <el-col :span="10">
+                    <el-col :span="16">
                       <el-rate
-                        v-model="value5"
+                        v-model="value1"
                         disabled
                         show-score
                         text-color="#ff9900"
@@ -27,13 +27,27 @@
                       </el-rate>
                     </el-col>
                   </el-row>
-                  <el-row :gutter="20">
-                    <el-col :span="10">
+                  <el-row>
+                    <el-col :span="8">
                       <p style="line-height:0px;"><b>特效</b></p>
                     </el-col>
-                    <el-col :span="10">
+                    <el-col :span="16">
                       <el-rate
-                        v-model="value5"
+                        v-model="value2"
+                        disabled
+                        show-score
+                        text-color="#ff9900"
+                        score-template="{value}">
+                      </el-rate>
+                    </el-col>
+                  </el-row>
+                  <el-row >
+                    <el-col :span="8">
+                      <p style="line-height:0px;"><b>演员阵容</b></p>
+                    </el-col>
+                    <el-col :span="16">
+                      <el-rate
+                        v-model="value3"
                         disabled
                         show-score
                         text-color="#ff9900"
@@ -42,18 +56,7 @@
                     </el-col>
                   </el-row>
                   <el-row :gutter="20">
-                    <el-col :span="10">
-                      <p style="line-height:0px;"><b>演员阵容</b></p>
-                    </el-col>
-                    <el-col :span="10">
-                      <el-rate
-                        v-model="value5"
-                        disabled
-                        show-score
-                        text-color="#ff9900"
-                        score-template="{value}">
-                      </el-rate>
-                    </el-col>
+                    <h4>总共有 {{count}} 个评分</h4>
                   </el-row>
                 </div>
               </el-col>
@@ -76,7 +79,7 @@
               </el-col>
             </el-row>
             <div style="height:50px;border-top:1px solid #eee;margin-top:60px;"></div>
-            <Comment/>
+            <Comment v-on:childByValue="postScore"/>
             <el-footer>
               <Footer/>
             </el-footer>
@@ -85,6 +88,10 @@
           <el-main class="aside-0">
             <h4>影片分类</h4>
             <Tags/>
+          </el-main>
+          <el-main class="aside-0" style="margin-top:20px;">
+            <h4>影片地区</h4>
+            <Location/>
           </el-main>
           <el-main class="aside-3">
             <h4>猜你喜欢</h4>
@@ -116,6 +123,7 @@ import Rank from '@/components/RankList.vue'
 import Search from '@/components/Search.vue'
 import API from '@/components/api/index.js'
 import Comment from '@/components/Comment.vue'
+import Location from '@/components/Location.vue'
 
 export default {
   name: 'app',
@@ -127,6 +135,7 @@ export default {
     Rank,
     Search,
     Comment,
+    Location,
   },
   data(){
     return {
@@ -134,7 +143,10 @@ export default {
        pageName: "烂樱桃_电影_详情_",
        items:[],
        title:"",
-       value5:3.1,
+       value1:0.0,
+       value2:0.0,
+       value3:0.0,
+       count:"",
        //pic:''
     }
   },
@@ -147,6 +159,7 @@ export default {
 
        var id = this.$router.history.current.params.id;
        this.getMovie(id);
+       this.getScore(id);
 
     },
     methods:{
@@ -163,6 +176,32 @@ export default {
 
         })
 
+      },
+      getScore(id){
+        var vm = this;
+        this.$jsonp(API.MOVIE_SCORE,
+          {
+            id:id,
+          }
+        ).then(json => {
+          this.value1 = 0;
+          vm.value2 = 0;
+          vm.value3 =  0;
+          vm.count = 0;
+
+          if(json.count != 0){
+            vm.value1 = parseFloat(json.data.story_score);
+            vm.value2 = parseFloat(json.data.effect_score);
+            vm.value3 = parseFloat(json.data.actor_score);
+            vm.count = json.count;
+
+          }
+        }).catch(err => {
+
+        })
+      },
+      postScore:function(postScore){
+        getScore(this.$router.history.current.params.id);
       }
 
     },

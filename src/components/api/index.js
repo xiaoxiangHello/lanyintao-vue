@@ -24,4 +24,5 @@ module.exports = {
 	POST_SCORE:BASE_PREFIX+"/Home/movieList/apiPostScore",
 	GET_USER:BASE_PREFIX+"/Home/user/apiUserInfo",
 	POST_COMMENT:BASE_PREFIX+"/Home/user/apiUserComment",
+	MOVIE_SCORE:BASE_PREFIX+"/Home/movieList/apiMovieScore"
 };

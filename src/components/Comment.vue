@@ -93,6 +93,7 @@ export default {
       value2:null,
       value3:null,
       textarea:"",
+      isPostScore:0,
     }
   },
   mounted(){
@@ -116,8 +117,10 @@ export default {
             id:this.$router.history.current.params.id,
             story_score:this.value1,
             effect_score:this.value2,
+            actor_score:this.value3,
          }).then(json => {
-            alert(json.msg);
+              alert(json.msg);
+              this.$emit('postScore', 1);
          }).catch(err => {
 
          })

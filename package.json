@@ -13,6 +13,7 @@
     "http-proxy-middleware": "^0.18.0",
     "js-md5": "^0.7.3",
     "moment": "^2.22.2",
+    "peer": "^0.2.10",
     "prerender-spa-plugin": "^3.4.0",
     "vue": "^2.5.16",
     "vue-jsonp": "^0.1.8",

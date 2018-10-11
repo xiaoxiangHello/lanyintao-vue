@@ -4,6 +4,7 @@
     <div class="decrote-line"></div>
     <h3>{{title}}</h3>
     <p>{{time}}</p>
+    <p>京ICP备18008417号</p>
     <p><a :href="email" target="_blank">{{connect}}</a>|
       <a href="#" target="_blank">{{feedback}}</a></p>
   </div>

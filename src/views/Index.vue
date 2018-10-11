@@ -26,6 +26,10 @@
             <h4>影片分类</h4>
             <Tags/>
           </el-main>
+          <el-main class="aside-0" style="margin-top:20px;">
+            <h4>影片地区</h4>
+            <Location/>
+          </el-main>
           <el-main class="aside-3">
             <h4>猜你喜欢</h4>
             <Guess/>
@@ -60,6 +64,7 @@ import Rank from '@/components/RankList.vue'
 import Search from '@/components/Search.vue'
 import CommentRank from '@/components/CommentRank.vue'
 import API from '@/components/api/index.js'
+import Location from '@/components/Location.vue'
 
 
 export default {
@@ -74,6 +79,7 @@ export default {
     Rank,
     Search,
     CommentRank,
+    Location,
   },
   data(){
     return {
@@ -101,12 +107,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 90%;
+  width: 84%;
   margin-left: auto;
   margin-right: auto;
 }
 .search{
-  width: 96%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;

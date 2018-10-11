@@ -2,7 +2,7 @@
   <el-carousel :interval="4000" type="card" >
     <el-carousel-item v-for="item in items" >
     <router-link :to="{path:'/detail/id/'+item.article_id}" target="_blank">
-      <img :src="item.url" height="300px"/>
+      <img :src="item.url" height="300px"/> 
     </router-link>
     </el-carousel-item>
   </el-carousel>
@@ -43,7 +43,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.el-carousel__item h3 {
+
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
     opacity: 0.75;
