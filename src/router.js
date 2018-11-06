@@ -14,7 +14,7 @@ import UserEdit from './views/UserEdit.vue'
 Vue.use(Router)
 
 export default new Router({
-    base:'/lanyintao-vue/',
+    base:'/',
     mode: 'history',
     routes: [{
             path: '/',
