@@ -15,6 +15,7 @@
     "moment": "^2.22.2",
     "peer": "^0.2.10",
     "prerender-spa-plugin": "^3.4.0",
+    "puppeteer": "^1.10.0",
     "vue": "^2.5.16",
     "vue-jsonp": "^0.1.8",
     "vue-resource": "^1.5.1",
