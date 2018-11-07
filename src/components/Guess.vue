@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="24" class="row">
     <div v-for="item in items" style="border:1px solid #eee;">
-      <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
+      <router-link :to="{path:'/home/index/details/id/'+item.id}" target="_blank">
       <el-col :span="10">
         <img :src="item.pic" height="160px;" width="110px;"/>
       </el-col>

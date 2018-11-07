@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="24" class="row">
     <div v-for="(item,key) in items">
-      <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
+      <router-link :to="{path:'/home/index/details/id/'+item.id}" target="_blank">
     <el-col :span="20" style="color:#333;">
       <p>
           <span style="font-size:20px;weight:blod;padding-right:10px;color:red;" v-if="item.rank < 6">{{item.rank}}</span>

@@ -1,8 +1,8 @@
 <template>
   <el-carousel :interval="4000" type="card" >
     <el-carousel-item v-for="item in items" >
-    <router-link :to="{path:'/detail/id/'+item.article_id}" target="_blank">
-      <img :src="item.url" height="300px"/> 
+    <router-link :to="{path:'/home/index/details/id/'+item.article_id}" target="_blank">
+      <img :src="item.url" height="300px"/>
     </router-link>
     </el-carousel-item>
   </el-carousel>

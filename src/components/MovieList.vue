@@ -11,7 +11,7 @@
 
        <el-col :span="6" v-for="item in items">
          <div class="grid-content bg-purple">
-            <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
+            <router-link :to="{path:'/home/index/details/id/'+item.id}" target="_blank">
              <img :data-src="item.pic" class="movie-item lazyImg"/>
              <p class="movie-title"><b>{{item.title}}</b></p>
             </router-link>

@@ -1,5 +1,5 @@
-var API_PREFIX = "http://www.lanyintao.com/Home/movieList/apiVueList/";
-var BASE_PREFIX = "http://www.lanyintao.com";
+var API_PREFIX = "http://api.lanyintao.com/Home/movieList/apiVueList/";
+var BASE_PREFIX = "http://api.lanyintao.com";
 
 module.exports = {
 	COMMON_API:API_PREFIX,

@@ -13,7 +13,7 @@
 
           <el-row :gutter="24" style="min-height:1800px;">
             <div v-for="item in items" style="height:200px;border:1px solid #eee;padding-top:20px;" :key="item.id">
-              <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
+              <router-link :to="{path:'/home/index/details/id/'+item.id}" target="_blank">
               <el-col :span="8">
                  <img :data-src="item.pic" class="movie-item lazyImg" style="height:180px;width:120px;"/>
               </el-col>

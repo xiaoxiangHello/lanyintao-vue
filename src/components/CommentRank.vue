@@ -2,7 +2,7 @@
   <el-row :gutter="24" class="row">
 
     <div v-for="(item,key) in items">
-      <router-link :to="{path:'/detail/id/'+item.id}" target="_blank">
+      <router-link :to="{path:'/home/index/details/id/'+item.id}" target="_blank">
     <el-col :span="20" >
       <p>
         <a :href="item.url" target="_blank" style="text-decoration:none;color:#333;">

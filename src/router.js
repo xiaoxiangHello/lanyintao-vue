@@ -69,7 +69,7 @@ export default new Router({
             component:Forget
         },
         {
-          path:'/detail/id/:id',
+          path:'/home/index/details/id/:id',
           name:'detail',
           component:Detail
         },
