@@ -180,12 +180,19 @@ export default {
       },
       getPosList(pos, page){
         var vm = this;
-        this.$jsonp("http://www.lanyintao.com/home/MovieList/apiGetPos",
+        if(pos == "中国香港"){
+          pos = "香港";
+        }
+        if(pos == "中国台湾"){
+          pos = "台湾";
+        }
+        this.$jsonp(API.MOVIE_LOCATION_POS,
           {
             pos:pos,
             p:page
           }
         ).then(json => {
+           console.log(json);
             vm.items = json.data;
             vm.total = json.pageinfo.totalRows*1;
             vm.title = this.$router.history.current.params.pos;

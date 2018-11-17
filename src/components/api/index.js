@@ -1,7 +1,7 @@
 var API_PREFIX = "http://api.lanyintao.com/Home/movieList/apiVueList/";
 var BASE_PREFIX = "http://api.lanyintao.com";
 
-module.exports = {
+export default {
 	COMMON_API:API_PREFIX,
 	LATEST_FEED:API_PREFIX + "type/1/page/1",
 	MAINLAND_FEED:API_PREFIX + "type/2/page/1",
@@ -24,5 +24,6 @@ module.exports = {
 	POST_SCORE:BASE_PREFIX+"/Home/movieList/apiPostScore",
 	GET_USER:BASE_PREFIX+"/Home/user/apiUserInfo",
 	POST_COMMENT:BASE_PREFIX+"/Home/user/apiUserComment",
-	MOVIE_SCORE:BASE_PREFIX+"/Home/movieList/apiMovieScore"
+	MOVIE_SCORE:BASE_PREFIX+"/Home/movieList/apiMovieScore",
+	MOVIE_LOCATION_POS:BASE_PREFIX+"/Home/movieList/apiGetPos",
 };

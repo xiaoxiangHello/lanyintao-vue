@@ -2,7 +2,8 @@
   <el-carousel :interval="4000" type="card" >
     <el-carousel-item v-for="item in items" >
     <router-link :to="{path:'/home/index/details/id/'+item.article_id}" target="_blank">
-      <img :src="item.url" height="300px"/>
+      <img :src="item.url" height="300px" style="z-index:1;position:relative;"/>
+      <h1 style="z-index:2;position:absolute;left:88px;top:220px;color:white;">{{item.title}}</h1>
     </router-link>
     </el-carousel-item>
   </el-carousel>

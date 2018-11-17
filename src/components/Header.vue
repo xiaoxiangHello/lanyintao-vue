@@ -33,7 +33,7 @@ export default {
              {title:'欧美电影', url:"/ShowList/local/1/p/1", id:"2"},
              {title:'日韩电影', url:"/ShowList/local/2/p/1", id:"3"},
              {title:'东南亚电影', url:"/ShowList/local/3/p/1", id:"4"}],
-      picUrl:"http://www.lanyintao.com/Public/img/Cherry.png",
+      picUrl:"http://api.lanyintao.com/Public/img/Cherry.png",
     }
   },
   methods: {

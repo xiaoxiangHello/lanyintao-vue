@@ -114,7 +114,8 @@ export default {
   }
   .movie-item{
     height:220px;
-    width: 150px;
+    width: 92%;
+    max-width: 180px;
     margin-left: auto;
     margin-right: auto;
   }

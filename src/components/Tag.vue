@@ -22,7 +22,7 @@ export default {
       activeIndex:'1',
       tags:[{title:'动作', url:"/ShowList/type/动作/p/1", id:"1"},
             {title:'喜剧', url:"/ShowList/type/喜剧/p/1", id:"2"},
-            {title:'喜剧', url:"/ShowList/type/喜剧/p/1", id:"3"},
+            {title:'冒险', url:"/ShowList/type/冒险/p/1", id:"3"},
             {title:'犯罪', url:"/ShowList/type/犯罪/p/1", id:"4"},
             {title:'惊悚', url:"/ShowList/type/惊悚/p/1", id:"5"},
             {title:'悬疑', url:"/ShowList/type/悬疑/p/1", id:"6"},
