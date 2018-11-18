@@ -44,7 +44,7 @@ export default {
     return {
       input:"",
       pageName: '烂樱桃(电影网)',
-      pic:"http://www.lanyintao.com/Public/img/Cherry.png",
+      pic:"http://api.lanyintao.com/Public/img/Cherry.png",
       input1:"",
       input2:"",
       msg:""

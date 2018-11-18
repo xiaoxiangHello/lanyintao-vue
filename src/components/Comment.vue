@@ -145,8 +145,9 @@ export default {
              }
              ).then(json => {
                  this.items = json.data
+                 alert('评论成功');
              }).catch(err => {
-               // console.log(err)
+
              })
           } else{
             alert(json.msg);

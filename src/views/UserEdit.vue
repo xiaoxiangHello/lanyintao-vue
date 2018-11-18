@@ -12,7 +12,7 @@
             <el-row :gutter="26">
               <div style="height:350px;border:1px solid #eee;background:#eee;">
               <el-col :span="8" style="margin-top:60px;">
-                 <img :src="pic" style="float:right;height:150px;width:150px;"/>
+                 <img :src="pic" style="float:right;height:150px;width:150px;" ref="pic"/>
               </el-col>
               <el-col :span="12" style="text-align:left;margin-top:45px;margin-left:0px;">
                   <h1 style="margin-left:10px;">编辑头像</h1>
@@ -132,20 +132,21 @@ export default {
 
             form.append('photo',img1, img1.name);
 
-            this.$http.post('http://www.lanyintao.com/home/user/apiUploadLogo', form,{
+            this.$http.post('http://api.lanyintao.com/home/user/apiUploadLogo', form,{
               header:{'Content-Type':'multipart/form-data'},
               emulateJSON:true
             }).then(response =>{
               //this.item.littlepic = response.data.picurl;
               var data = JSON.parse(response.data);
               this.pic = data.picurl;
+              this.$refs.pic.src = data.picurl;
             }).catch(error =>{
               alert('上传错误');
             })
 
       },
       sumbitInfo(){
-        this.$http.post('http://www.lanyintao.com/home/user/apiModifyUserInfo',
+        this.$http.post('http://api.lanyintao.com/home/user/apiModifyUserInfo',
         {
           userid:this.$router.history.current.params.id,
           name:this.input1,

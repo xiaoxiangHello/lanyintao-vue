@@ -27,7 +27,7 @@
               <div v-if="comments !== null">
                 <div v-for="comment in comments" >
                   <div style="height:130px;border:1px solid #eee;background:#eee;margin-top:10px;">
-                  <router-link :to="{path:'/detail/id/'+comment.movieid}" target="_blank">
+                  <router-link :to="{path:'/home/index/details/id/'+comment.movieid}" target="_blank">
                   <el-col :span="8" style="margin-top:35px;border-right:1px solid rgba(51, 51, 51, 0.29);text-align:right;">
                      <h1>{{comment.pubtimeday}}</h1>
                      <p>{{comment.pubtimehour}}</p>
